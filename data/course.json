@@ -1,0 +1,102 @@
+[
+    {
+        "courseID": 1,
+        "name": "数据结构",
+        "credit": 4
+    },
+    {
+        "courseID": 2,
+        "name": "计算机网络",
+        "credit": 3
+    },
+    {
+        "courseID": 3,
+        "name": "操作系统",
+        "credit": 4
+    },
+    {
+        "courseID": 4,
+        "name": "数据库原理",
+        "credit": 4
+    },
+    {
+        "courseID": 5,
+        "name": "算法分析与设计",
+        "credit": 4
+    },
+    {
+        "courseID": 6,
+        "name": "软件工程",
+        "credit": 3
+    },
+    {
+        "courseID": 7,
+        "name": "编译原理",
+        "credit": 4
+    },
+    {
+        "courseID": 8,
+        "name": "人工智能基础",
+        "credit": 3
+    },
+    {
+        "courseID": 9,
+        "name": "大学语文",
+        "credit": 3
+    },
+    {
+        "courseID": 10,
+        "name": "高等数学",
+        "credit": 5
+    },
+    {
+        "courseID": 11,
+        "name": "线性代数",
+        "credit": 3
+    },
+    {
+        "courseID": 12,
+        "name": "概率论与数理统计",
+        "credit": 4
+    },
+    {
+        "courseID": 13,
+        "name": "大学英语",
+        "credit": 4
+    },
+    {
+        "courseID": 14,
+        "name": "思想道德修养与法律基础",
+        "credit": 3
+    },
+    {
+        "courseID": 15,
+        "name": "中国近现代史纲要",
+        "credit": 3
+    },
+    {
+        "courseID": 16,
+        "name": "马克思主义基本原理概论",
+        "credit": 4
+    },
+    {
+        "courseID": 17,
+        "name": "毛泽东思想和中国特色社会主义理论体系概论",
+        "credit": 6
+    },
+    {
+        "courseID": 18,
+        "name": "艺术概论",
+        "credit": 2
+    },
+    {
+        "courseID": 19,
+        "name": "大学体育",
+        "credit": 1
+    },
+    {
+        "courseID": 20,
+        "name": "心理健康教育",
+        "credit": 2
+    }
+]

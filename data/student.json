@@ -1,0 +1,372 @@
+[
+    {
+        "studentID": 1,
+        "name": "陈宇轩",
+        "sex": 0,
+        "age": 20,
+        "dorm_number": 101,
+        "phone_number": 1234567891,
+        "retake_inf": [
+            [1, 45],
+            [3, 50]
+        ]
+    },
+    {
+        "studentID": 2,
+        "name": "林诗涵",
+        "sex": 1,
+        "age": 21,
+        "dorm_number": 101,
+        "phone_number": 1234567892,
+        "retake_inf": []
+    },
+    {
+        "studentstudentID": 3,
+        "name": "赵逸飞",
+        "sex": 0,
+        "age": 22,
+        "dorm_number": 102,
+        "phone_number": 1234567893,
+        "retake_inf": [
+            [2, 40]
+        ]
+    },
+    {
+        "studentID": 4,
+        "name": "周雅琴",
+        "sex": 1,
+        "age": 23,
+        "dorm_number": 102,
+        "phone_number": 1234567894,
+        "retake_inf": []
+    },
+    {
+        "studentID": 5,
+        "name": "吴雨薇",
+        "sex": 1,
+        "age": 20,
+        "dorm_number": 103,
+        "phone_number": 1234567895,
+        "retake_inf": []
+    },
+    {
+        "studentID": 6,
+        "name": "郑婉清",
+        "sex": 1,
+        "age": 21,
+        "dorm_number": 103,
+        "phone_number": 1234567896,
+        "retake_inf": []
+    },
+    {
+        "studentID": 7,
+        "name": "孙启铭",
+        "sex": 0,
+        "age": 22,
+        "dorm_number": 104,
+        "phone_number": 1234567897,
+        "retake_inf": [
+            [4, 55],
+            [6, 35]
+        ]
+    },
+    {
+        "studentID": 8,
+        "name": "马俊辉",
+        "sex": 0,
+        "age": 23,
+        "dorm_number": 104,
+        "phone_number": 1234567898,
+        "retake_inf": []
+    },
+    {
+        "studentID": 9,
+        "name": "朱静宜",
+        "sex": 1,
+        "age": 20,
+        "dorm_number": 105,
+        "phone_number": 1234567899,
+        "retake_inf": []
+    },
+    {
+        "studentID": 10,
+        "name": "胡悦琳",
+        "sex": 1,
+        "age": 21,
+        "dorm_number": 105,
+        "phone_number": 1234567800,
+        "retake_inf": []
+    },
+    {
+        "studentID": 11,
+        "name": "郭瑞阳",
+        "sex": 0,
+        "age": 22,
+        "dorm_number": 106,
+        "phone_number": 1234567801,
+        "retake_inf": []
+    },
+    {
+        "studentID": 12,
+        "name": "何梦琪",
+        "sex": 1,
+        "age": 23,
+        "dorm_number": 106,
+        "phone_number": 1234567802,
+        "retake_inf": [
+            [3, 48]
+        ]
+    },
+    {
+        "studentID": 13,
+        "name": "高梓豪",
+        "sex": 0,
+        "age": 20,
+        "dorm_number": 107,
+        "phone_number": 1234567803,
+        "retake_inf": []
+    },
+    {
+        "studentID": 14,
+        "name": "梁嘉怡",
+        "sex": 1,
+        "age": 21,
+        "dorm_number": 107,
+        "phone_number": 1234567804,
+        "retake_inf": []
+    },
+    {
+        "studentID": 15,
+        "name": "徐婉婷",
+        "sex": 1,
+        "age": 22,
+        "dorm_number": 108,
+        "phone_number": 1234567805,
+        "retake_inf": []
+    },
+    {
+        "studentID": 16,
+        "name": "罗雨萱",
+        "sex": 1,
+        "age": 23,
+        "dorm_number": 108,
+        "phone_number": 1234567806,
+        "retake_inf": []
+    },
+    {
+        "studentID": 17,
+        "name": "宋逸晨",
+        "sex": 0,
+        "age": 20,
+        "dorm_number": 109,
+        "phone_number": 1234567807,
+        "retake_inf": []
+    },
+    {
+        "studentID": 18,
+        "name": "唐宇澄",
+        "sex": 0,
+        "age": 21,
+        "dorm_number": 109,
+        "phone_number": 1234567808,
+        "retake_inf": []
+    },
+    {
+        "studentID": 19,
+        "name": "邓梓轩",
+        "sex": 0,
+        "age": 22,
+        "dorm_number": 110,
+        "phone_number": 1234567809,
+        "retake_inf": []
+    },
+    {
+        "studentID": 20,
+        "name": "冯宇飞",
+        "sex": 0,
+        "age": 23,
+        "dorm_number": 110,
+        "phone_number": 1234567810,
+        "retake_inf": []
+    },
+    {
+        "studentID": 21,
+        "name": "曾诗韵",
+        "sex": 1,
+        "age": 20,
+        "dorm_number": 111,
+        "phone_number": 1234567811,
+        "retake_inf": []
+    },
+    {
+        "studentID": 22,
+        "name": "萧雅静",
+        "sex": 1,
+        "age": 21,
+        "dorm_number": 111,
+        "phone_number": 1234567812,
+        "retake_inf": []
+    },
+    {
+        "studentID": 23,
+        "name": "程思瑶",
+        "sex": 1,
+        "age": 22,
+        "dorm_number": 112,
+        "phone_number": 1234567813,
+        "retake_inf": []
+    },
+    {
+        "studentID": 24,
+        "name": "蔡宇翔",
+        "sex": 0,
+        "age": 23,
+        "dorm_number": 112,
+        "phone_number": 1234567814,
+        "retake_inf": []
+    },
+    {
+        "studentID": 25,
+        "name": "丁雨薇",
+        "sex": 1,
+        "age": 20,
+        "dorm_number": 113,
+        "phone_number": 1234567815,
+        "retake_inf": []
+    },
+    {
+        "studentID": 26,
+        "name": "沈俊峰",
+        "sex": 0,
+        "age": 21,
+        "dorm_number": 113,
+        "phone_number": 1234567816,
+        "retake_inf": []
+    },
+    {
+        "studentID": 27,
+        "name": "韩诗涵",
+        "sex": 1,
+        "age": 22,
+        "dorm_number": 114,
+        "phone_number": 1234567817,
+        "retake_inf": []
+    },
+    {
+        "studentID": 28,
+        "name": "曹静怡",
+        "sex": 1,
+        "age": 23,
+        "dorm_number": 114,
+        "phone_number": 1234567818,
+        "retake_inf": []
+    },
+    {
+        "studentID": 29,
+        "name": "许梓豪",
+        "sex": 0,
+        "age": 20,
+        "dorm_number": 115,
+        "phone_number": 1234567819,
+        "retake_inf": []
+    },
+    {
+        "studentID": 30,
+        "name": "叶嘉怡",
+        "sex": 1,
+        "age": 21,
+        "dorm_number": 115,
+        "phone_number": 1234567820,
+        "retake_inf": []
+    },
+    {
+        "studentID": 31,
+        "name": "潘宇轩",
+        "sex": 0,
+        "age": 22,
+        "dorm_number": 116,
+        "phone_number": 1234567821,
+        "retake_inf": []
+    },
+    {
+        "studentID": 32,
+        "name": "田宇飞",
+        "sex": 0,
+        "age": 23,
+        "dorm_number": 116,
+        "phone_number": 1234567822,
+        "retake_inf": []
+    },
+    {
+        "studentID": 33,
+        "name": "董诗韵",
+        "sex": 1,
+        "age": 20,
+        "dorm_number": 117,
+        "phone_number": 1234567823,
+        "retake_inf": []
+    },
+    {
+        "studentID": 34,
+        "name": "袁雅静",
+        "sex": 1,
+        "age": 21,
+        "dorm_number": 117,
+        "phone_number": 1234567824,
+        "retake_inf": []
+    },
+    {
+        "studentID": 35,
+        "name": "范思瑶",
+        "sex": 1,
+        "age": 22,
+        "dorm_number": 118,
+        "phone_number": 1234567825,
+        "retake_inf": []
+    },
+    {
+        "studentID": 36,
+        "name": "方宇翔",
+        "sex": 0,
+        "age": 23,
+        "dorm_number": 118,
+        "phone_number": 1234567826,
+        "retake_inf": []
+    },
+    {
+        "studentID": 37,
+        "name": "石雨薇",
+        "sex": 1,
+        "age": 20,
+        "dorm_number": 119,
+        "phone_number": 1234567827,
+        "retake_inf": []
+    },
+    {
+        "studentID": 38,
+        "name": "姚俊峰",
+        "sex": 0,
+        "age": 21,
+        "dorm_number": 119,
+        "phone_number": 1234567828,
+        "retake_inf": []
+    },
+    {
+        "studentID": 39,
+        "name": "谭诗涵",
+        "sex": 1,
+        "age": 22,
+        "dorm_number": 120,
+        "phone_number": 1234567829,
+        "retake_inf": []
+    },
+    {
+        "studentID": 40,
+        "name": "廖静怡",
+        "sex": 1,
+        "age": 23,
+        "dorm_number": 120,
+        "phone_number": 1234567830,
+        "retake_inf": []
+    }
+]
