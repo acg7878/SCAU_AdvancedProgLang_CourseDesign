@@ -3,6 +3,7 @@
 #include <vector>
 #include <iomanip>
 #include "utils/DataLoader.hpp"
+#include "utils/StudentUtils.hpp"
 
 void displayMenu(const std::vector<std::string>& options) {
     std::cout << "+------------------------------------+" << std::endl;
@@ -21,12 +22,13 @@ int main() {
     std::vector<Student> students = DataLoader::loadStudents("../data/student.json");
     std::vector<Course> courses = DataLoader::loadCourses("../data/course.json");
     std::vector<Enrollment> enrollments = DataLoader::loadEnrollments("../data/enrollment.json");
-
+    // debug代码
+    // students.pop_back();
+    // DataLoader::saveStudents("../data/student.json", students); 
+    
     std::vector<std::string> options = {
-        "查询学生信息",
-        "查询课程信息",
-        "录入学生成绩",
-        "显示所有学生"
+        "学生信息",
+        "课程信息",
     };
 
     int choice = -1;
@@ -47,7 +49,7 @@ int main() {
                 std::cout << "正在退出... 再见！" << std::endl;
                 break;
             case 1:
-                std::cout << "正在查询学生信息..." << std::endl;
+                StudentInfo(students);
                 break;
             case 2:
                 std::cout << "正在查询课程信息..." << std::endl;

@@ -9,3 +9,7 @@ Enrollment::Enrollment(const std::string &studentId,
 
 std::string Enrollment::getStudentId() const { return studentId; }
 std::string Enrollment::getCourseId() const { return courseId; }
+int Enrollment::getExamGrade() const { return exam_grade; }
+int Enrollment::getUsualGrade() const { return usual_grade; }
+int Enrollment::getCompositeGrade() const { return composite_grade; }
+bool Enrollment::isRetake() const { return is_retake; }

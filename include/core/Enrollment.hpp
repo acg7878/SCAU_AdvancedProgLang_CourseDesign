@@ -11,8 +11,13 @@ public:
              int exam_grade, int usual_grade, bool is_retake,
              int composite_grade = -1);
   // 默认值需要放最后
+
   std::string getStudentId() const;
   std::string getCourseId() const;
+  int getExamGrade() const;
+  int getUsualGrade() const;
+  int getCompositeGrade() const;
+  bool isRetake() const;
 
 private:
   std::string studentId;
