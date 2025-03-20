@@ -1,10 +1,11 @@
 #include "core/Course.hpp"
+#include <string>
 
 // 构造函数
-Course::Course(int id, const std::string &name, int credit)
-    : id(id), name(name),  credit(credit) {}
+Course::Course(std::string courseID, const std::string &name, int credit)
+    : courseID(courseID), name(name),  credit(credit) {}
 
 // 获取课程信息
-int Course::getId() const { return id; }
+std::string Course::getId() const { return courseID; }
 std::string Course::getName() const { return name; }
 int Course::getCredit() const { return credit; }

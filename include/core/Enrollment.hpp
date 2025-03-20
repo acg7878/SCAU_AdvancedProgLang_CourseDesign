@@ -8,7 +8,7 @@
 class Enrollment {
 public:
   Enrollment(const std::string &studentId, const std::string &courseId,
-             int exam_grade, int usual_grade, bool is_retake,
+             int exam_grade, int usual_grade, bool is_retake = false,
              int composite_grade = -1);
   // 默认值需要放最后
 
@@ -18,6 +18,11 @@ public:
   int getUsualGrade() const;
   int getCompositeGrade() const;
   bool isRetake() const;
+
+  void setExamGrade(int grade);
+  void setUsualGrade(int grade);
+  void setCompositeGrade(int grade);
+  void set_is_retake(bool flag);
 
 private:
   std::string studentId;

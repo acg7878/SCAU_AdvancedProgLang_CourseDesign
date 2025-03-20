@@ -2,7 +2,9 @@
 #include <string>
 #include <vector>
 #include <iomanip>
+#include "core/Enrollment.hpp"
 #include "utils/DataLoader.hpp"
+#include "utils/EnrollmentUtils.hpp"
 #include "utils/StudentUtils.hpp"
 
 void displayMenu(const std::vector<std::string>& options) {
@@ -23,8 +25,8 @@ int main() {
     std::vector<Course> courses = DataLoader::loadCourses("../data/course.json");
     std::vector<Enrollment> enrollments = DataLoader::loadEnrollments("../data/enrollment.json");
     // debug代码
-    // students.pop_back();
-    // DataLoader::saveStudents("../data/student.json", students); 
+    // enrollments.pop_back();
+    // DataLoader::saveEnrollments("../data/enrollment.json", enrollments); 
     
     std::vector<std::string> options = {
         "学生信息",
@@ -52,7 +54,7 @@ int main() {
                 StudentInfo(students);
                 break;
             case 2:
-                std::cout << "正在查询课程信息..." << std::endl;
+                EnrollmentInfo(enrollments, students, courses);
                 break;
             case 3:
                 std::cout << "正在录入学生成绩..." << std::endl;

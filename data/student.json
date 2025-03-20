@@ -318,6 +318,13 @@
         "phone_number": "12",
         "sex": 0,
         "studentID": "202226910925"
+    },
+    {
+        "age": 12,
+        "dorm_number": 113,
+        "name": "陈日华",
+        "phone_number": "12342562252",
+        "sex": 1,
+        "studentID": "0"
     }
-    
 ]

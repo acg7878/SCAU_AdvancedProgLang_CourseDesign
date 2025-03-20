@@ -1,330 +1,338 @@
 [
     {
-        "studentID": "1",
+        "composite_grade": 12,
         "courseID": "1",
-        "exam_grade": 85,
-        "usual_grade": 90,
-        "composite_grade": 87,
-        "is_retake": false
+        "exam_grade": 12,
+        "is_retake": true,
+        "studentID": "1",
+        "usual_grade": 12
     },
     {
-        "studentID": "1",
+        "composite_grade": 47,
         "courseID": "3",
         "exam_grade": 45,
-        "usual_grade": 50,
-        "composite_grade": 47,
-        "is_retake": true
+        "is_retake": true,
+        "studentID": "1",
+        "usual_grade": 50
     },
     {
-        "studentID": "2",
+        "composite_grade": 80,
         "courseID": "2",
         "exam_grade": 78,
-        "usual_grade": 82,
-        "composite_grade": 80,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "2",
+        "usual_grade": 82
     },
     {
-        "studentID": "2",
+        "composite_grade": 93,
         "courseID": "10",
         "exam_grade": 92,
-        "usual_grade": 95,
-        "composite_grade": 93,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "2",
+        "usual_grade": 95
     },
     {
-        "studentID": "3",
+        "composite_grade": 42,
         "courseID": "2",
         "exam_grade": 40,
-        "usual_grade": 45,
-        "composite_grade": 42,
-        "is_retake": true
+        "is_retake": true,
+        "studentID": "3",
+        "usual_grade": 45
     },
     {
-        "studentID": "3",
+        "composite_grade": 89,
         "courseID": "11",
         "exam_grade": 88,
-        "usual_grade": 90,
-        "composite_grade": 89,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "3",
+        "usual_grade": 90
     },
     {
-        "studentID": "4",
+        "composite_grade": 77,
         "courseID": "5",
         "exam_grade": 75,
-        "usual_grade": 80,
-        "composite_grade": 77,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "4",
+        "usual_grade": 80
     },
     {
-        "studentID": "4",
+        "composite_grade": 82,
         "courseID": "13",
         "exam_grade": 80,
-        "usual_grade": 85,
-        "composite_grade": 82,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "4",
+        "usual_grade": 85
     },
     {
-        "studentID": "5",
+        "composite_grade": 91,
         "courseID": "4",
         "exam_grade": 90,
-        "usual_grade": 92,
-        "composite_grade": 91,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "5",
+        "usual_grade": 92
     },
     {
-        "studentID": "5",
+        "composite_grade": 83,
         "courseID": "18",
         "exam_grade": 82,
-        "usual_grade": 85,
-        "composite_grade": 83,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "5",
+        "usual_grade": 85
     },
     {
-        "studentID": "6",
+        "composite_grade": 72,
         "courseID": "6",
         "exam_grade": 70,
-        "usual_grade": 75,
-        "composite_grade": 72,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "6",
+        "usual_grade": 75
     },
     {
-        "studentID": "6",
+        "composite_grade": 89,
         "courseID": "15",
         "exam_grade": 88,
-        "usual_grade": 90,
-        "composite_grade": 89,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "6",
+        "usual_grade": 90
     },
     {
-        "studentID": "7",
+        "composite_grade": 57,
         "courseID": "4",
         "exam_grade": 55,
-        "usual_grade": 60,
-        "composite_grade": 57,
-        "is_retake": true
+        "is_retake": true,
+        "studentID": "7",
+        "usual_grade": 60
     },
     {
-        "studentID": "7",
+        "composite_grade": 37,
         "courseID": "6",
         "exam_grade": 35,
-        "usual_grade": 40,
-        "composite_grade": 37,
-        "is_retake": true
+        "is_retake": true,
+        "studentID": "7",
+        "usual_grade": 40
     },
     {
-        "studentID": "7",
+        "composite_grade": 82,
         "courseID": "12",
         "exam_grade": 80,
-        "usual_grade": 85,
-        "composite_grade": 82,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "7",
+        "usual_grade": 85
     },
     {
-        "studentID": "8",
+        "composite_grade": 91,
         "courseID": "7",
         "exam_grade": 90,
-        "usual_grade": 92,
-        "composite_grade": 91,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "8",
+        "usual_grade": 92
     },
     {
-        "studentID": "8",
+        "composite_grade": 87,
         "courseID": "14",
         "exam_grade": 85,
-        "usual_grade": 90,
-        "composite_grade": 87,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "8",
+        "usual_grade": 90
     },
     {
-        "studentID": "9",
+        "composite_grade": 80,
         "courseID": "8",
         "exam_grade": 78,
-        "usual_grade": 82,
-        "composite_grade": 80,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "9",
+        "usual_grade": 82
     },
     {
-        "studentID": "9",
+        "composite_grade": 89,
         "courseID": "19",
         "exam_grade": 88,
-        "usual_grade": 90,
-        "composite_grade": 89,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "9",
+        "usual_grade": 90
     },
     {
-        "studentID": "10",
+        "composite_grade": 93,
         "courseID": "9",
         "exam_grade": 92,
-        "usual_grade": 95,
-        "composite_grade": 93,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "10",
+        "usual_grade": 95
     },
     {
-        "studentID": "10",
+        "composite_grade": 82,
         "courseID": "20",
         "exam_grade": 80,
-        "usual_grade": 85,
-        "composite_grade": 82,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "10",
+        "usual_grade": 85
     },
     {
-        "studentID": "11",
+        "composite_grade": 87,
         "courseID": "1",
         "exam_grade": 85,
-        "usual_grade": 90,
-        "composite_grade": 87,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "11",
+        "usual_grade": 90
     },
     {
-        "studentID": "11",
+        "composite_grade": 72,
         "courseID": "17",
         "exam_grade": 70,
-        "usual_grade": 75,
-        "composite_grade": 72,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "11",
+        "usual_grade": 75
     },
     {
-        "studentID": "12",
+        "composite_grade": 50,
         "courseID": "3",
         "exam_grade": 48,
-        "usual_grade": 52,
-        "composite_grade": 50,
-        "is_retake": true
+        "is_retake": true,
+        "studentID": "12",
+        "usual_grade": 52
     },
     {
-        "studentID": "12",
+        "composite_grade": 89,
         "courseID": "16",
         "exam_grade": 88,
-        "usual_grade": 90,
-        "composite_grade": 89,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "12",
+        "usual_grade": 90
     },
     {
-        "studentID": "13",
+        "composite_grade": 82,
         "courseID": "2",
         "exam_grade": 80,
-        "usual_grade": 85,
-        "composite_grade": 82,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "13",
+        "usual_grade": 85
     },
     {
-        "studentID": "13",
+        "composite_grade": 91,
         "courseID": "10",
         "exam_grade": 90,
-        "usual_grade": 92,
-        "composite_grade": 91,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "13",
+        "usual_grade": 92
     },
     {
-        "studentID": "14",
+        "composite_grade": 80,
         "courseID": "5",
         "exam_grade": 78,
-        "usual_grade": 82,
-        "composite_grade": 80,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "14",
+        "usual_grade": 82
     },
     {
-        "studentID": "14",
+        "composite_grade": 87,
         "courseID": "13",
         "exam_grade": 85,
-        "usual_grade": 90,
-        "composite_grade": 87,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "14",
+        "usual_grade": 90
     },
     {
-        "studentID": "15",
+        "composite_grade": 93,
         "courseID": "4",
         "exam_grade": 92,
-        "usual_grade": 95,
-        "composite_grade": 93,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "15",
+        "usual_grade": 95
     },
     {
-        "studentID": "15",
+        "composite_grade": 82,
         "courseID": "18",
         "exam_grade": 80,
-        "usual_grade": 85,
-        "composite_grade": 82,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "15",
+        "usual_grade": 85
     },
     {
-        "studentID": "16",
+        "composite_grade": 77,
         "courseID": "6",
         "exam_grade": 75,
-        "usual_grade": 80,
-        "composite_grade": 77,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "16",
+        "usual_grade": 80
     },
     {
-        "studentID": "16",
+        "composite_grade": 89,
         "courseID": "15",
         "exam_grade": 88,
-        "usual_grade": 90,
-        "composite_grade": 89,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "16",
+        "usual_grade": 90
     },
     {
-        "studentID": "17",
+        "composite_grade": 91,
         "courseID": "7",
         "exam_grade": 90,
-        "usual_grade": 92,
-        "composite_grade": 91,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "17",
+        "usual_grade": 92
     },
     {
-        "studentID": "17",
+        "composite_grade": 87,
         "courseID": "14",
         "exam_grade": 85,
-        "usual_grade": 90,
-        "composite_grade": 87,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "17",
+        "usual_grade": 90
     },
     {
-        "studentID": "18",
+        "composite_grade": 80,
         "courseID": "8",
         "exam_grade": 78,
-        "usual_grade": 82,
-        "composite_grade": 80,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "18",
+        "usual_grade": 82
     },
     {
-        "studentID": "18",
+        "composite_grade": 89,
         "courseID": "19",
         "exam_grade": 88,
-        "usual_grade": 90,
-        "composite_grade": 89,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "18",
+        "usual_grade": 90
     },
     {
-        "studentID": "19",
+        "composite_grade": 93,
         "courseID": "9",
         "exam_grade": 92,
-        "usual_grade": 95,
-        "composite_grade": 93,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "19",
+        "usual_grade": 95
     },
     {
-        "studentID": "19",
+        "composite_grade": 82,
         "courseID": "20",
         "exam_grade": 80,
-        "usual_grade": 85,
-        "composite_grade": 82,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "19",
+        "usual_grade": 85
     },
     {
-        "studentID": "20",
+        "composite_grade": 87,
         "courseID": "1",
         "exam_grade": 85,
-        "usual_grade": 90,
-        "composite_grade": 87,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "20",
+        "usual_grade": 90
     },
     {
-        "studentID": "20",
+        "composite_grade": 72,
         "courseID": "17",
         "exam_grade": 70,
-        "usual_grade": 75,
-        "composite_grade": 72,
-        "is_retake": false
+        "is_retake": false,
+        "studentID": "20",
+        "usual_grade": 75
+    },
+    {
+        "composite_grade": -1,
+        "courseID": "1",
+        "exam_grade": -1,
+        "is_retake": false,
+        "studentID": "1",
+        "usual_grade": -1
     }
 ]

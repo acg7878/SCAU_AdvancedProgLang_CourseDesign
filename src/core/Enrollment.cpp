@@ -13,3 +13,7 @@ int Enrollment::getExamGrade() const { return exam_grade; }
 int Enrollment::getUsualGrade() const { return usual_grade; }
 int Enrollment::getCompositeGrade() const { return composite_grade; }
 bool Enrollment::isRetake() const { return is_retake; }
+void Enrollment::setExamGrade(int grade) { exam_grade = grade; }
+void Enrollment::setUsualGrade(int grade) { usual_grade = grade; }
+void Enrollment::setCompositeGrade(int grade) { composite_grade = grade; }
+void Enrollment::set_is_retake(bool flag) { is_retake = flag; }

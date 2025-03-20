@@ -1,10 +1,10 @@
 #include "utils/StudentUtils.hpp"
 #include "core/Student.hpp"
 #include "utils/DataLoader.hpp"
+#include <iomanip>
 #include <iostream>
 #include <string>
 #include <vector>
-
 // 验证id唯一性
 bool isStudentIdUnique(const std::vector<Student> &students,
                        const std::string &id) {
@@ -31,8 +31,18 @@ Student inputStudentInfo(const std::vector<Student> &students) {
   std::cout << "请输入姓名: ";
   std::cin >> name;
 
-  std::cout << "请输入性别 (0: 男, 1: 女): ";
-  std::cin >> sex;
+  do {
+    std::cout << "请输入性别 (0: 男, 1: 女): ";
+    if (!(std::cin >> sex)) {
+      std::cin.clear();
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      std::cout << "无效输入，请输入数字。\n";
+      continue;
+    }
+    if (sex != 0 && sex != 1) {
+      std::cout << "输入无效，请输入 0 或 1。\n";
+    }
+  } while (sex != 0 && sex != 1);
 
   std::cout << "请输入年龄: ";
   std::cin >> age;
@@ -86,7 +96,8 @@ void StudentInfo(std::vector<Student> &students) {
     std::cout << "|            学生信息菜单             |" << std::endl;
     std::cout << "+------------------------------------+" << std::endl;
     for (size_t i = 0; i < options.size(); ++i) {
-      std::cout << "| " << i << ". " << options[i] << std::endl;
+      std::cout << "| " << std::setw(2) << i << ". " << std::left
+                << std::setw(30) << options[i] << " |" << std::endl;
     }
     std::cout << "+------------------------------------+" << std::endl;
     std::cout << "请输入您的选择：";
