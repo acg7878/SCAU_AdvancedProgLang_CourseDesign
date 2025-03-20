@@ -4,13 +4,13 @@
 #include "core/Student.hpp"
 #include <vector>
 
-Student inputStudentInfo();
-void addStudent(std::vector<Student>& students);
-Student findStudentById(const std::vector<Student>& students, int studentId);
-void displayStudentInfo(const Student& student);
-
+Student inputStudentInfo(const std::vector<Student> &students);
+void addStudent(std::vector<Student> &students);
+Student findStudentById(const std::vector<Student> &students, int studentId);
+void displayStudentInfo(const Student &student);
+bool isStudentIdUnique(const std::vector<Student> &students,
+                       const std::string &id);
 // 主界面
-void StudentInfo(std::vector<Student>& students);
-
+void StudentInfo(std::vector<Student> &students);
 
 #endif // STUDENTUTILS_HPP

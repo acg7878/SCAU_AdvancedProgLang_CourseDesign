@@ -13,6 +13,8 @@ for student in students:
         del student['retake_inf']
     if 'studentID' in student and isinstance(student['studentID'], int):
         student['studentID'] = str(student['studentID'])
+    if 'phone_number' in student and isinstance(student['phone_number'], int):
+        student['phone_number'] = str(student['phone_number'])
 
 # 将修改后的数据写回 JSON 文件
 with open(file_path, 'w', encoding='utf-8') as file:

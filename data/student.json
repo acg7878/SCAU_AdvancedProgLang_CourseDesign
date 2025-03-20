@@ -3,7 +3,7 @@
         "age": 20,
         "dorm_number": 101,
         "name": "陈宇轩",
-        "phone_number": 1234567891,
+        "phone_number": "1234567891",
         "sex": 0,
         "studentID": "1"
     },
@@ -11,7 +11,7 @@
         "age": 21,
         "dorm_number": 101,
         "name": "林诗涵",
-        "phone_number": 1234567892,
+        "phone_number": "1234567892",
         "sex": 1,
         "studentID": "2"
     },
@@ -19,7 +19,7 @@
         "age": 23,
         "dorm_number": 102,
         "name": "周雅琴",
-        "phone_number": 1234567894,
+        "phone_number": "1234567894",
         "sex": 1,
         "studentID": "4"
     },
@@ -27,7 +27,7 @@
         "age": 20,
         "dorm_number": 103,
         "name": "吴雨薇",
-        "phone_number": 1234567895,
+        "phone_number": "1234567895",
         "sex": 1,
         "studentID": "5"
     },
@@ -35,7 +35,7 @@
         "age": 21,
         "dorm_number": 103,
         "name": "郑婉清",
-        "phone_number": 1234567896,
+        "phone_number": "1234567896",
         "sex": 1,
         "studentID": "6"
     },
@@ -43,7 +43,7 @@
         "age": 22,
         "dorm_number": 104,
         "name": "孙启铭",
-        "phone_number": 1234567897,
+        "phone_number": "1234567897",
         "sex": 0,
         "studentID": "7"
     },
@@ -51,7 +51,7 @@
         "age": 23,
         "dorm_number": 104,
         "name": "马俊辉",
-        "phone_number": 1234567898,
+        "phone_number": "1234567898",
         "sex": 0,
         "studentID": "8"
     },
@@ -59,7 +59,7 @@
         "age": 20,
         "dorm_number": 105,
         "name": "朱静宜",
-        "phone_number": 1234567899,
+        "phone_number": "1234567899",
         "sex": 1,
         "studentID": "9"
     },
@@ -67,7 +67,7 @@
         "age": 21,
         "dorm_number": 105,
         "name": "胡悦琳",
-        "phone_number": 1234567800,
+        "phone_number": "1234567800",
         "sex": 1,
         "studentID": "10"
     },
@@ -75,7 +75,7 @@
         "age": 22,
         "dorm_number": 106,
         "name": "郭瑞阳",
-        "phone_number": 1234567801,
+        "phone_number": "1234567801",
         "sex": 0,
         "studentID": "11"
     },
@@ -83,7 +83,7 @@
         "age": 23,
         "dorm_number": 106,
         "name": "何梦琪",
-        "phone_number": 1234567802,
+        "phone_number": "1234567802",
         "sex": 1,
         "studentID": "12"
     },
@@ -91,7 +91,7 @@
         "age": 20,
         "dorm_number": 107,
         "name": "高梓豪",
-        "phone_number": 1234567803,
+        "phone_number": "1234567803",
         "sex": 0,
         "studentID": "13"
     },
@@ -99,7 +99,7 @@
         "age": 21,
         "dorm_number": 107,
         "name": "梁嘉怡",
-        "phone_number": 1234567804,
+        "phone_number": "1234567804",
         "sex": 1,
         "studentID": "14"
     },
@@ -107,7 +107,7 @@
         "age": 22,
         "dorm_number": 108,
         "name": "徐婉婷",
-        "phone_number": 1234567805,
+        "phone_number": "1234567805",
         "sex": 1,
         "studentID": "15"
     },
@@ -115,7 +115,7 @@
         "age": 23,
         "dorm_number": 108,
         "name": "罗雨萱",
-        "phone_number": 1234567806,
+        "phone_number": "1234567806",
         "sex": 1,
         "studentID": "16"
     },
@@ -123,7 +123,7 @@
         "age": 20,
         "dorm_number": 109,
         "name": "宋逸晨",
-        "phone_number": 1234567807,
+        "phone_number": "1234567807",
         "sex": 0,
         "studentID": "17"
     },
@@ -131,7 +131,7 @@
         "age": 21,
         "dorm_number": 109,
         "name": "唐宇澄",
-        "phone_number": 1234567808,
+        "phone_number": "1234567808",
         "sex": 0,
         "studentID": "18"
     },
@@ -139,7 +139,7 @@
         "age": 22,
         "dorm_number": 110,
         "name": "邓梓轩",
-        "phone_number": 1234567809,
+        "phone_number": "1234567809",
         "sex": 0,
         "studentID": "19"
     },
@@ -147,7 +147,7 @@
         "age": 23,
         "dorm_number": 110,
         "name": "冯宇飞",
-        "phone_number": 1234567810,
+        "phone_number": "1234567810",
         "sex": 0,
         "studentID": "20"
     },
@@ -155,7 +155,7 @@
         "age": 20,
         "dorm_number": 111,
         "name": "曾诗韵",
-        "phone_number": 1234567811,
+        "phone_number": "1234567811",
         "sex": 1,
         "studentID": "21"
     },
@@ -163,7 +163,7 @@
         "age": 21,
         "dorm_number": 111,
         "name": "萧雅静",
-        "phone_number": 1234567812,
+        "phone_number": "1234567812",
         "sex": 1,
         "studentID": "22"
     },
@@ -171,7 +171,7 @@
         "age": 22,
         "dorm_number": 112,
         "name": "程思瑶",
-        "phone_number": 1234567813,
+        "phone_number": "1234567813",
         "sex": 1,
         "studentID": "23"
     },
@@ -179,7 +179,7 @@
         "age": 23,
         "dorm_number": 112,
         "name": "蔡宇翔",
-        "phone_number": 1234567814,
+        "phone_number": "1234567814",
         "sex": 0,
         "studentID": "24"
     },
@@ -187,7 +187,7 @@
         "age": 20,
         "dorm_number": 113,
         "name": "丁雨薇",
-        "phone_number": 1234567815,
+        "phone_number": "1234567815",
         "sex": 1,
         "studentID": "25"
     },
@@ -195,7 +195,7 @@
         "age": 21,
         "dorm_number": 113,
         "name": "沈俊峰",
-        "phone_number": 1234567816,
+        "phone_number": "1234567816",
         "sex": 0,
         "studentID": "26"
     },
@@ -203,7 +203,7 @@
         "age": 22,
         "dorm_number": 114,
         "name": "韩诗涵",
-        "phone_number": 1234567817,
+        "phone_number": "1234567817",
         "sex": 1,
         "studentID": "27"
     },
@@ -211,7 +211,7 @@
         "age": 23,
         "dorm_number": 114,
         "name": "曹静怡",
-        "phone_number": 1234567818,
+        "phone_number": "1234567818",
         "sex": 1,
         "studentID": "28"
     },
@@ -219,7 +219,7 @@
         "age": 20,
         "dorm_number": 115,
         "name": "许梓豪",
-        "phone_number": 1234567819,
+        "phone_number": "1234567819",
         "sex": 0,
         "studentID": "29"
     },
@@ -227,7 +227,7 @@
         "age": 21,
         "dorm_number": 115,
         "name": "叶嘉怡",
-        "phone_number": 1234567820,
+        "phone_number": "1234567820",
         "sex": 1,
         "studentID": "30"
     },
@@ -235,7 +235,7 @@
         "age": 22,
         "dorm_number": 116,
         "name": "潘宇轩",
-        "phone_number": 1234567821,
+        "phone_number": "1234567821",
         "sex": 0,
         "studentID": "31"
     },
@@ -243,7 +243,7 @@
         "age": 23,
         "dorm_number": 116,
         "name": "田宇飞",
-        "phone_number": 1234567822,
+        "phone_number": "1234567822",
         "sex": 0,
         "studentID": "32"
     },
@@ -251,7 +251,7 @@
         "age": 20,
         "dorm_number": 117,
         "name": "董诗韵",
-        "phone_number": 1234567823,
+        "phone_number": "1234567823",
         "sex": 1,
         "studentID": "33"
     },
@@ -259,7 +259,7 @@
         "age": 21,
         "dorm_number": 117,
         "name": "袁雅静",
-        "phone_number": 1234567824,
+        "phone_number": "1234567824",
         "sex": 1,
         "studentID": "34"
     },
@@ -267,7 +267,7 @@
         "age": 22,
         "dorm_number": 118,
         "name": "范思瑶",
-        "phone_number": 1234567825,
+        "phone_number": "1234567825",
         "sex": 1,
         "studentID": "35"
     },
@@ -275,7 +275,7 @@
         "age": 23,
         "dorm_number": 118,
         "name": "方宇翔",
-        "phone_number": 1234567826,
+        "phone_number": "1234567826",
         "sex": 0,
         "studentID": "36"
     },
@@ -283,7 +283,7 @@
         "age": 20,
         "dorm_number": 119,
         "name": "石雨薇",
-        "phone_number": 1234567827,
+        "phone_number": "1234567827",
         "sex": 1,
         "studentID": "37"
     },
@@ -291,7 +291,7 @@
         "age": 21,
         "dorm_number": 119,
         "name": "姚俊峰",
-        "phone_number": 1234567828,
+        "phone_number": "1234567828",
         "sex": 0,
         "studentID": "38"
     },
@@ -299,7 +299,7 @@
         "age": 22,
         "dorm_number": 120,
         "name": "谭诗涵",
-        "phone_number": 1234567829,
+        "phone_number": "1234567829",
         "sex": 1,
         "studentID": "39"
     },
@@ -307,7 +307,7 @@
         "age": 23,
         "dorm_number": 120,
         "name": "廖静怡",
-        "phone_number": 1234567830,
+        "phone_number": "1234567830",
         "sex": 1,
         "studentID": "40"
     },
@@ -315,8 +315,9 @@
         "age": 13,
         "dorm_number": 12,
         "name": "yjk",
-        "phone_number": 12,
+        "phone_number": "12",
         "sex": 0,
         "studentID": "202226910925"
     }
+    
 ]

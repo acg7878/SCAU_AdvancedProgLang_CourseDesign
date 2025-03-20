@@ -5,12 +5,28 @@
 #include <string>
 #include <vector>
 
-Student inputStudentInfo() {
-  int sex, age, dormNumber, phoneNumber;
-  std::string id, name;
+// 验证id唯一性
+bool isStudentIdUnique(const std::vector<Student> &students,
+                       const std::string &id) {
+  for (const auto &student : students) {
+    if (student.getId() == id) {
+      return false;
+    }
+  }
+  return true;
+}
 
-  std::cout << "请输入学生ID: ";
-  std::cin >> id;
+Student inputStudentInfo(const std::vector<Student> &students) {
+  int sex, age, dormNumber;
+  std::string id, name, phoneNumber;
+
+  do {
+    std::cout << "请输入学生ID: ";
+    std::cin >> id;
+    if (!isStudentIdUnique(students, id)) {
+      std::cout << "学生ID已存在，请输入一个唯一的ID。\n";
+    }
+  } while (!isStudentIdUnique(students, id));
 
   std::cout << "请输入姓名: ";
   std::cin >> name;
@@ -24,26 +40,19 @@ Student inputStudentInfo() {
   std::cout << "请输入宿舍号: ";
   std::cin >> dormNumber;
 
-  std::cout << "请输入电话号码: ";
-  std::cin >> phoneNumber;
+  do {
+    std::cout << "请输入电话号码 (11位): ";
+    std::cin >> phoneNumber;
+    if (phoneNumber.length() != 11) {
+      std::cout << "电话号码必须为11位，请重新输入。\n";
+    }
+  } while (phoneNumber.length() != 11);
 
   return Student(id, name, sex, age, dormNumber, phoneNumber);
-  // std::cout << "是否有重修记录？(1为需要录入重修信息，0为未曾重修)" <<
-  // std::endl; std::cout << "请输入："; if(isRetake == 0) return Student(id,
-  // name, sex, age, dormNumber, phoneNumber); else if(isRetake == 1){
-  //     std::cout << "请输入重修记录数量：";
-  //     int num;
-  //     std::cin >> num;
-  //     std::vector<std::pair<int, int>> retake_inf(num);
-  //     for(int i = 0;i < num; i++) {
-  //         std::cout << "请输入第" << i << "条记录（学期 ）"
-  //     }
-
-  // }
 }
 
 void addStudent(std::vector<Student> &students) {
-  Student newStudent = inputStudentInfo();
+  Student newStudent = inputStudentInfo(students);
   students.push_back(newStudent);
   DataLoader::saveStudents("../data/student.json", students);
   std::cout << "学生信息录入成功！" << std::endl;
@@ -73,10 +82,13 @@ void StudentInfo(std::vector<Student> &students) {
   do {
     std::vector<std::string> options = {"返回上一级", "查询学生信息",
                                         "录入学生信息"};
-    std::cout << "\n学生信息菜单：" << std::endl;
+    std::cout << "\n+------------------------------------+" << std::endl;
+    std::cout << "|            学生信息菜单             |" << std::endl;
+    std::cout << "+------------------------------------+" << std::endl;
     for (size_t i = 0; i < options.size(); ++i) {
-      std::cout << i << ". " << options[i] << std::endl;
+      std::cout << "| " << i << ". " << options[i] << std::endl;
     }
+    std::cout << "+------------------------------------+" << std::endl;
     std::cout << "请输入您的选择：";
     std::cin >> choice;
 
@@ -92,13 +104,23 @@ void StudentInfo(std::vector<Student> &students) {
       std::cout << "返回上一级..." << std::endl;
       break;
     case 1: {
+      std::cout << "\n+------------------------------------+" << std::endl;
+      std::cout << "|           查询学生信息              |" << std::endl;
+      std::cout << "+------------------------------------+" << std::endl;
       std::cout << "请输入学生ID：";
       std::string studentID;
       std::cin >> studentID;
-      displayStudentInfo(findStudentById(students, studentID));
+      try {
+        displayStudentInfo(findStudentById(students, studentID));
+      } catch (const std::exception &e) {
+        std::cerr << e.what() << std::endl;
+      }
       break;
     }
     case 2:
+      std::cout << "\n+------------------------------------+" << std::endl;
+      std::cout << "|           录入学生信息              |" << std::endl;
+      std::cout << "+------------------------------------+" << std::endl;
       addStudent(students);
       break;
     default:
