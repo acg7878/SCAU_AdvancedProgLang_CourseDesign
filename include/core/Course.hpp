@@ -17,6 +17,8 @@ public:
   std::string getId() const;
   std::string getName() const;
   int getCredit() const;
+  void setName(const std::string& name);
+  void setCredit(int credit);
 };
 
 #endif // COURSE_HPP

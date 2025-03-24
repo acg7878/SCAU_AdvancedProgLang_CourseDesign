@@ -6,6 +6,7 @@
 #include "utils/DataLoader.hpp"
 #include "utils/EnrollmentUtils.hpp"
 #include "utils/StudentUtils.hpp"
+#include "utils/CourseUtils.hpp"
 
 void displayMenu(const std::vector<std::string>& options) {
     std::cout << "+------------------------------------+" << std::endl;
@@ -30,7 +31,8 @@ int main() {
     
     std::vector<std::string> options = {
         "学生信息",
-        "课程信息",
+        "选课信息",
+        "课程信息"
     };
 
     int choice = -1;
@@ -57,10 +59,7 @@ int main() {
                 EnrollmentInfo(enrollments, students, courses);
                 break;
             case 3:
-                std::cout << "正在录入学生成绩..." << std::endl;
-                break;
-            case 4:
-                std::cout << "正在显示所有学生..." << std::endl;
+                CourseInfo(courses);
                 break;
             default:
                 std::cout << "无效选择，请选择有效的选项。" << std::endl;
