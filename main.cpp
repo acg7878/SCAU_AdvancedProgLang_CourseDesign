@@ -9,16 +9,16 @@
 #include "utils/CourseUtils.hpp"
 
 void displayMenu(const std::vector<std::string>& options) {
-    std::cout << "+------------------------------------+" << std::endl;
-    std::cout << "|       \033[1;34m教务信息管理系统\033[0m        |" << std::endl;
-    std::cout << "+------------------------------------+" << std::endl;
+    std::cout << "+--------------------------------+" << std::endl;
+    std::cout << "|       \033[1;34m教务信息管理系统\033[0m         |" << std::endl;
+    std::cout << "+--------------------------------+" << std::endl;
 
     for (size_t i = 0; i < options.size(); ++i) {
         std::cout << "| " << std::setw(2) << i + 1 << ". " << std::left << std::setw(30) << options[i] << " |" << std::endl;
     }
-    std::cout << "+------------------------------------+" << std::endl;
-    std::cout << "|  0. 退出                            |" << std::endl;
-    std::cout << "+------------------------------------+" << std::endl;
+    std::cout << "+--------------------------------+" << std::endl;
+    std::cout << "|  0. 退出                       |" << std::endl;
+    std::cout << "+--------------------------------+" << std::endl;
 }
 
 int main() {

@@ -52,55 +52,114 @@ void get_enrollment_list(const std::vector<Enrollment> &enrollments,
 void cal_credits(const std::vector<Enrollment> &enrollments,
                  const std::vector<Student> &students,
                  const std::vector<Course> &courses) {
-  std::unordered_map<std::string, int> studentCredits;
+    std::unordered_map<std::string, int> studentCredits;
 
-  for (const auto &enrollment : enrollments) {
-    auto course =
-        std::find_if(courses.begin(), courses.end(), [&](const Course &c) {
-          return c.getId() == enrollment.getCourseId();
-        });
-    if (course != courses.end() && enrollment.getCompositeGrade() >= 60) {
-      studentCredits[enrollment.getStudentId()] += course->getCredit();
+    for (const auto &enrollment : enrollments) {
+        auto course =
+            std::find_if(courses.begin(), courses.end(), [&](const Course &c) {
+                return c.getId() == enrollment.getCourseId();
+            });
+        if (course != courses.end() && enrollment.getCompositeGrade() >= 60) {
+            studentCredits[enrollment.getStudentId()] += course->getCredit();
+        }
     }
-  }
 
-  for (const auto &student : students) {
-    std::cout << "学生ID: " << student.getId()
-              << ", 姓名: " << student.getName() << std::endl;
-    std::cout << "已修学分: " << studentCredits[student.getId()] << std::endl;
-    std::cout << "----------------------------------------" << std::endl;
-  }
+    std::cout << "请选择查询方式：\n1. 打印所有学生信息\n2. 根据学生ID打印\n";
+    int choice;
+    std::cout << "请输入：";
+    std::cin >> choice;
+
+    if (choice == 1) {
+        for (const auto &student : students) {
+            std::cout << "学生ID: " << student.getId()
+                      << ", 姓名: " << student.getName() << std::endl;
+            std::cout << "已修学分: " << studentCredits[student.getId()] << std::endl;
+            std::cout << "----------------------------------------" << std::endl;
+        }
+    } else if (choice == 2) {
+        std::string studentId;
+        std::cout << "请输入学生ID: ";
+        std::cin >> studentId;
+
+        auto student = std::find_if(students.begin(), students.end(), [&](const Student &s) {
+            return s.getId() == studentId;
+        });
+
+        if (student != students.end()) {
+            std::cout << "学生ID: " << student->getId()
+                      << ", 姓名: " << student->getName() << std::endl;
+            std::cout << "已修学分: " << studentCredits[student->getId()] << std::endl;
+            std::cout << "----------------------------------------" << std::endl;
+        } else {
+            std::cout << "未找到该学生信息。" << std::endl;
+        }
+    } else {
+        std::cout << "无效选择。" << std::endl;
+    }
 }
 
 void cal_retake_course(const std::vector<Enrollment> &enrollments,
                        const std::vector<Student> &students,
                        const std::vector<Course> &courses) {
-  std::unordered_map<std::string, std::vector<std::string>> studentFailures;
+    std::unordered_map<std::string, std::vector<std::string>> studentFailures;
 
-  for (const auto &enrollment : enrollments) {
-    auto course =
-        std::find_if(courses.begin(), courses.end(), [&](const Course &c) {
-          return c.getId() == enrollment.getCourseId();
+    for (const auto &enrollment : enrollments) {
+        auto course =
+            std::find_if(courses.begin(), courses.end(), [&](const Course &c) {
+                return c.getId() == enrollment.getCourseId();
+            });
+        if (course != courses.end() && enrollment.getExamGrade() < 60) {
+            studentFailures[enrollment.getStudentId()].push_back(course->getName());
+        }
+    }
+
+    std::cout << "请选择查询方式：\n1. 打印所有学生信息\n2. 根据学生ID打印特定学生信息\n";
+    int choice;
+    std::cin >> choice;
+
+    if (choice == 1) {
+        for (const auto &student : students) {
+            std::cout << "学生ID: " << student.getId()
+                      << ", 姓名: " << student.getName() << std::endl;
+            std::cout << "不及格课程: ";
+            if (studentFailures.find(student.getId()) != studentFailures.end()) {
+                for (const auto &courseName : studentFailures[student.getId()]) {
+                    std::cout << courseName << " ";
+                }
+            } else {
+                std::cout << "无";
+            }
+            std::cout << std::endl;
+            std::cout << "----------------------------------------" << std::endl;
+        }
+    } else if (choice == 2) {
+        std::string studentId;
+        std::cout << "请输入学生ID: ";
+        std::cin >> studentId;
+
+        auto student = std::find_if(students.begin(), students.end(), [&](const Student &s) {
+            return s.getId() == studentId;
         });
-    if (course != courses.end() && enrollment.getExamGrade() < 60) {
-      studentFailures[enrollment.getStudentId()].push_back(course->getName());
-    }
-  }
 
-  for (const auto &student : students) {
-    std::cout << "学生ID: " << student.getId()
-              << ", 姓名: " << student.getName() << std::endl;
-    std::cout << "不及格课程: ";
-    if (studentFailures.find(student.getId()) != studentFailures.end()) {
-      for (const auto &courseName : studentFailures[student.getId()]) {
-        std::cout << courseName << " ";
-      }
+        if (student != students.end()) {
+            std::cout << "学生ID: " << student->getId()
+                      << ", 姓名: " << student->getName() << std::endl;
+            std::cout << "不及格课程: ";
+            if (studentFailures.find(student->getId()) != studentFailures.end()) {
+                for (const auto &courseName : studentFailures[student->getId()]) {
+                    std::cout << courseName << " ";
+                }
+            } else {
+                std::cout << "无";
+            }
+            std::cout << std::endl;
+            std::cout << "----------------------------------------" << std::endl;
+        } else {
+            std::cout << "未找到该学生信息。" << std::endl;
+        }
     } else {
-      std::cout << "无";
+        std::cout << "无效选择。" << std::endl;
     }
-    std::cout << std::endl;
-    std::cout << "----------------------------------------" << std::endl;
-  }
 }
 
 void add_enrollment(std::vector<Enrollment> &enrollments) {

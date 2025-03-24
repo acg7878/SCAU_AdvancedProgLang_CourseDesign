@@ -75,7 +75,7 @@ Student findStudentById(const std::vector<Student> &students,
       return student;
     }
   }
-  throw std::runtime_error("Student not found");
+  throw std::runtime_error("未找到该学生");
 }
 
 void displayStudentInfo(const Student &student) {
@@ -92,14 +92,14 @@ void StudentInfo(std::vector<Student> &students) {
   do {
     std::vector<std::string> options = {"返回上一级", "查询学生信息",
                                         "录入学生信息"};
-    std::cout << "\n+------------------------------------+" << std::endl;
-    std::cout << "|            学生信息菜单             |" << std::endl;
-    std::cout << "+------------------------------------+" << std::endl;
+    std::cout << "\n+------------------------------+" << std::endl;
+    std::cout << "|         学生信息菜单         |" << std::endl;
+    std::cout << "+------------------------------+" << std::endl;
     for (size_t i = 0; i < options.size(); ++i) {
       std::cout << "| " << std::setw(2) << i << ". " << std::left
                 << std::setw(30) << options[i] << " |" << std::endl;
     }
-    std::cout << "+------------------------------------+" << std::endl;
+    std::cout << "+------------------------------+" << std::endl;
     std::cout << "请输入您的选择：";
     std::cin >> choice;
 
