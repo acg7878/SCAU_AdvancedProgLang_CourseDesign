@@ -212,6 +212,15 @@ void AddStudentScreen(std::vector<Student> &students) {
 
   auto add_button = Button("录入", [&] {
     try {
+      // 验证手机号是否为11位
+      if (newStudentPhone.length() != 11 ||
+          !std::all_of(newStudentPhone.begin(), newStudentPhone.end(),
+                       ::isdigit)) {
+        addStudentMessage = "";
+        test = "电话号码必须为11位数字，请重新输入！";
+        return;
+      }
+
       int age = std::stoi(newStudentAge);
       int dorm = std::stoi(newStudentDorm);
       Student newStudent =
@@ -225,12 +234,6 @@ void AddStudentScreen(std::vector<Student> &students) {
         addStudentMessage = "";
         test = "学生ID已存在，录入失败！";
       }
-    } catch (const std::invalid_argument &e) {
-      addStudentMessage = "";
-      test = "输入的年龄或宿舍号不是有效的数字，请重新输入！";
-    } catch (const std::out_of_range &e) {
-      addStudentMessage = "";
-      test = "输入的年龄或宿舍号超出范围，请重新输入！";
     } catch (const std::exception &e) {
       addStudentMessage = "";
       test = "发生未知错误，请重试！";
@@ -244,14 +247,22 @@ void AddStudentScreen(std::vector<Student> &students) {
                            age_input, dorm_input, add_button, back_button});
 
   auto renderer = Renderer(add_student_container, [&] {
-    return vbox({text("录入学生信息") | bold | center, separator(),
-                 id_input->Render() | center, name_input->Render() | center,
-                 hbox({text("性别: "), sex_toggle->Render()}) | center,
-                 age_input->Render() | center, dorm_input->Render() | center,
-                 phone_input->Render() | center, add_button->Render() | center,
-                 text(addStudentMessage) | center,
-                 text(test) | color(Color::Red) | center,
-                 back_button->Render() | center});
+    return vbox({
+               text("录入学生信息") | bold | center,
+               separator(),
+               id_input->Render() | center,
+               name_input->Render() | center,
+               hbox({text("性别: "), sex_toggle->Render()}) | center,
+               age_input->Render() | center,
+               dorm_input->Render() | center,
+               phone_input->Render() | center,
+               hbox(add_button->Render() | center,
+                    back_button->Render() | center) |
+                   center,
+               text(addStudentMessage) | center,
+               text(test) | color(Color::Red) | center,
+           }) |
+           border;
   });
 
   screen.Loop(renderer);

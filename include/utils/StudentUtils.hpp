@@ -8,8 +8,6 @@ bool addStudent(std::vector<Student> &students, const Student &newStudent);
 Student findStudentById(const std::vector<Student> &students,
                         std::string studentId);
 std::string displayStudentInfo(const Student &student);
-bool isStudentIdUnique(const std::vector<Student> &students,
-                       const std::string &id);
 Student createStudent(const std::string &id, const std::string &name, int sex,
                       int age, int dormNumber, const std::string &phoneNumber);
 #endif // STUDENTUTILS_HPP

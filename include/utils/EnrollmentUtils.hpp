@@ -1,31 +1,37 @@
-#ifndef ENROLLMENTUTILS_HPP
-#define ENROLLMENTUTILS_HPP
+#ifndef ENROLLMENT_UTILS_HPP
+#define ENROLLMENT_UTILS_HPP
 
 #include "core/Course.hpp"
 #include "core/Enrollment.hpp"
 #include "core/Student.hpp"
+#include <string>
 #include <vector>
 
-// 获得课程的选课名单
-void get_enrollment_list(const std::vector<Enrollment> &enrollments,
-                         const std::vector<Student> &students,
-                         const std::vector<Course> &courses);
 
-// 计算所获学分
-void cal_credits(const std::vector<Enrollment> &enrollments,
-                 const std::vector<Student> &students,
-                 const std::vector<Course> &courses);
+// 根据课程ID获取学生列表
+std::vector<Student>
+get_students_by_course_id(const std::vector<Enrollment> &enrollments,
+                          const std::vector<Student> &students,
+                          const std::string &courseId);
 
-// 统计重修课程
-void cal_retake_course(const std::vector<Enrollment> &enrollments,
-                       const std::vector<Student> &students,
-                       const std::vector<Course> &courses);
+// 增加选课记录
+bool add_enrollment(std::vector<Enrollment> &enrollments,
+                    const std::string &studentId, const std::string &courseId);
 
-void add_enrollment(std::vector<Enrollment> &enrollments);
-void modify_student_grade(std::vector<Enrollment> &enrollments);
+// 按课程ID统计不及格学生人数
+int count_failing_students_by_course_id(
+    const std::vector<Enrollment> &enrollments, const std::string &courseId);
 
-// 主界面
-void EnrollmentInfo(std::vector<Enrollment> &enrollments,
-                    const std::vector<Student> &students,
-                    const std::vector<Course> &courses);
-#endif // ENROLLMENTUTILS_HPP
+// 按学生ID获取不及格课程列表
+std::vector<std::string>
+get_failing_courses_by_student_id(const std::vector<Enrollment> &enrollments,
+                                  const std::vector<Course> &courses,
+                                  const std::string &studentId);
+
+// 修改选课记录的成绩
+bool update_enrollment_grade(std::vector<Enrollment> &enrollments,
+                             const std::string &studentId,
+                             const std::string &courseId, int examGrade,
+                             int usualGrade);
+
+#endif // ENROLLMENT_UTILS_HPP

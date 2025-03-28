@@ -193,11 +193,18 @@ void AddCourseScreen(std::vector<Course> &courses) {
       {id_input, name_input, credits_input, add_button, back_button});
 
   auto renderer = Renderer(add_course_container, [&] {
-    return vbox({text("录入课程信息") | bold | center, separator(),
-                 id_input->Render() | center, name_input->Render() | center,
-                 credits_input->Render() | center,
-                 add_button->Render() | center, text(addCourseMessage) | center,
-                 back_button->Render() | center});
+    return vbox({
+               text("录入课程信息") | bold | center,
+               separator(),
+               id_input->Render() | center,
+               name_input->Render() | center,
+               credits_input->Render() | center,
+               hbox(add_button->Render() | center,
+                    back_button->Render() | center) |
+                   center,
+               text(addCourseMessage) | center,
+           }) |
+           border;
   });
 
   screen.Loop(renderer);

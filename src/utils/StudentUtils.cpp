@@ -1,10 +1,9 @@
 #include "utils/StudentUtils.hpp"
 #include "core/Student.hpp"
 #include "utils/DataLoader.hpp"
-#include <iostream>
 #include <string>
 #include <vector>
-#include <sstream>
+
 
 // 验证id唯一性
 bool isStudentIdUnique(const std::vector<Student> &students,
@@ -41,14 +40,15 @@ Student findStudentById(const std::vector<Student> &students,
   throw std::runtime_error("未找到该学生");
 }
 
-std::string displayStudentInfo(const Student &student) {
-    std::ostringstream oss;
-    oss << "学生ID: " << student.getId() << "\n";
-    oss << "姓名: " << student.getName() << "\n";
-    oss << "性别: " << (student.getSex() == 0 ? "男" : "女") << "\n";
-    oss << "年龄: " << student.getAge() << "\n";
-    oss << "宿舍号: " << student.getDormNumber() << "\n";
-    oss << "电话号码: " << student.getPhoneNumber() << "\n";
-    return oss.str();
-}
+// 没什么用
+// std::string displayStudentInfo(const Student &student) {
+//     std::ostringstream oss;
+//     oss << "学生ID: " << student.getId() << "\n";
+//     oss << "姓名: " << student.getName() << "\n";
+//     oss << "性别: " << (student.getSex() == 0 ? "男" : "女") << "\n";
+//     oss << "年龄: " << student.getAge() << "\n";
+//     oss << "宿舍号: " << student.getDormNumber() << "\n";
+//     oss << "电话号码: " << student.getPhoneNumber() << "\n";
+//     return oss.str();
+// }
 

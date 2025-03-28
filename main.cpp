@@ -1,6 +1,7 @@
 #include "core/Enrollment.hpp"
 #include "screen/CourseScreen.hpp"
 #include "screen/StudentScreen.hpp"
+#include "screen/EnrollmentScreen.hpp"
 #include "utils/DataLoader.hpp"
 #include <ftxui/component/component.hpp>
 #include <ftxui/component/screen_interactive.hpp>
@@ -36,7 +37,7 @@ void menu(std::vector<Student> students, std::vector<Course> courses,
       break;
     case 1:
       // 进入选课信息管理界面
-      // ShowEnrollmentScreen(screen, enrollments);
+      ShowEnrollmentScreen(enrollments,students,courses);
       break;
     case 2:
       // 进入课程信息管理界面
