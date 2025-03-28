@@ -1,71 +1,83 @@
-#include <iostream>
+#include "core/Enrollment.hpp"
+#include "screen/CourseScreen.hpp"
+#include "screen/StudentScreen.hpp"
+#include "utils/DataLoader.hpp"
+#include <ftxui/component/component.hpp>
+#include <ftxui/component/screen_interactive.hpp>
+#include <ftxui/dom/elements.hpp>
 #include <string>
 #include <vector>
-#include <iomanip>
-#include "core/Enrollment.hpp"
-#include "utils/DataLoader.hpp"
-#include "utils/EnrollmentUtils.hpp"
-#include "utils/StudentUtils.hpp"
-#include "utils/CourseUtils.hpp"
 
-void displayMenu(const std::vector<std::string>& options) {
-    std::cout << "+--------------------------------+" << std::endl;
-    std::cout << "|       \033[1;34m教务信息管理系统\033[0m         |" << std::endl;
-    std::cout << "+--------------------------------+" << std::endl;
+using namespace ftxui;
 
-    for (size_t i = 0; i < options.size(); ++i) {
-        std::cout << "| " << std::setw(2) << i + 1 << ". " << std::left << std::setw(30) << options[i] << " |" << std::endl;
+void LoadData(std::vector<Student> &students, std::vector<Course> &courses,
+              std::vector<Enrollment> &enrollments) {
+  students = DataLoader::loadStudents("../data/student.json");
+  courses = DataLoader::loadCourses("../data/course.json");
+  enrollments = DataLoader::loadEnrollments("../data/enrollment.json");
+}
+
+// 菜单函数
+void menu(std::vector<Student> students, std::vector<Course> courses,
+          std::vector<Enrollment> enrollments) {
+  auto screen = ScreenInteractive::TerminalOutput();
+
+  // 菜单选项
+  int selected = 0;
+  std::vector<std::string> entries = {"学生信息管理", "选课信息管理",
+                                      "课程信息管理"};
+
+  // "进入" 按钮
+  auto enter = Button("进入", [&] {
+    switch (selected) {
+    case 0:
+      // 进入学生信息管理界面
+      ShowStudentScreen(students);
+      break;
+    case 1:
+      // 进入选课信息管理界面
+      // ShowEnrollmentScreen(screen, enrollments);
+      break;
+    case 2:
+      // 进入课程信息管理界面
+      ShowCourseScreen(courses);
+      break;
     }
-    std::cout << "+--------------------------------+" << std::endl;
-    std::cout << "|  0. 退出                       |" << std::endl;
-    std::cout << "+--------------------------------+" << std::endl;
+  });
+
+  // "退出" 按钮
+  auto quit = Button("退出", screen.ExitLoopClosure());
+
+  // 菜单组件
+  auto menu = Menu(&entries, &selected);
+
+  // 容器组件
+  auto comp = Container::Horizontal({
+      menu,
+      enter,
+      quit,
+  });
+
+  // 渲染器
+  auto renderer = Renderer(comp, [&] {
+    return vbox({
+               text("教务信息管理系统") | bold | center,
+               separator(),
+               menu->Render() | center,
+               hbox(enter->Render(), separatorEmpty(), quit->Render()) | center,
+           }) |
+           border | size(WIDTH, EQUAL, 50) | center;
+  });
+
+  // 启动界面
+  screen.Loop(renderer);
 }
 
 int main() {
-    std::vector<Student> students = DataLoader::loadStudents("../data/student.json");
-    std::vector<Course> courses = DataLoader::loadCourses("../data/course.json");
-    std::vector<Enrollment> enrollments = DataLoader::loadEnrollments("../data/enrollment.json");
-    // debug代码
-    // enrollments.pop_back();
-    // DataLoader::saveEnrollments("../data/enrollment.json", enrollments); 
-    
-    std::vector<std::string> options = {
-        "学生信息",
-        "选课信息",
-        "课程信息"
-    };
-
-    int choice = -1;
-    do {
-        displayMenu(options);
-        std::cout << "\n请输入您的选择：";
-        std::cin >> choice;
-
-        if (std::cin.fail()) {
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "无效输入，请输入数字。\n";
-            continue;
-        }
-
-        switch (choice) {
-            case 0:
-                std::cout << "正在退出... 再见！" << std::endl;
-                break;
-            case 1:
-                StudentInfo(students);
-                break;
-            case 2:
-                EnrollmentInfo(enrollments, students, courses);
-                break;
-            case 3:
-                CourseInfo(courses);
-                break;
-            default:
-                std::cout << "无效选择，请选择有效的选项。" << std::endl;
-        }
-        std::cout << "\n";
-    } while (choice != 0);
-
-    return 0;
+  std::vector<Student> students;
+  std::vector<Course> courses;
+  std::vector<Enrollment> enrollments;
+  LoadData(students, courses, enrollments);
+  menu(students, courses, enrollments);
+  return 0;
 }

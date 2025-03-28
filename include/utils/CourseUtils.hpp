@@ -4,10 +4,18 @@
 #include "core/Course.hpp"
 #include <vector>
 
+Course findCourseById(const std::vector<Course> &courses,
+                      const std::string &courseId);
 
-void get_course_info(const std::vector<Course> &courses);
-void add_course(std::vector<Course> &courses);
-void modify_course(std::vector<Course> &courses);
-void search_course(const std::vector<Course> &courses);
-void CourseInfo(std::vector<Course> &courses);
+bool add_course(std::vector<Course> &courses, const std::string &courseId,
+                const std::string &courseName, int credit);
+
+std::string modify_course(std::vector<Course> &courses,
+                          const std::string &courseId,
+                          const std::string &newName, int newCredit);
+
+std::vector<std::vector<std::string>>
+search_course(const std::vector<Course> &courses,
+              const std::vector<std::string> &keywords);
+
 #endif // COURSEUTILS_HPP
