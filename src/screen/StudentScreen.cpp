@@ -7,7 +7,7 @@
 
 using namespace ftxui;
 
-void PrintStudentInfo(std::vector<Student> &students) {
+void searchStudentInfo(std::vector<Student> &students) {
   std::string test = "";
   int selected = 1;
   int page = 0, max_all = 0;
@@ -223,7 +223,7 @@ void AddStudentScreen(std::vector<Student> &students) {
       if (addStudent(students, newStudent)) {
         addStudentMessage = "学生信息录入成功！";
         test = "";
-        screen.Exit();
+        // screen.Exit();
       } else {
         addStudentMessage = "";
         test = "学生ID已存在，录入失败！";
@@ -253,7 +253,7 @@ void AddStudentScreen(std::vector<Student> &students) {
                hbox(add_button->Render() | center,
                     back_button->Render() | center) |
                    center,
-               text(addStudentMessage) | center,
+               text(addStudentMessage) | color(Color::Red) | center,
                text(test) | color(Color::Red) | center,
            }) |
            border;
@@ -274,12 +274,10 @@ void ShowStudentScreen(std::vector<Student> &students) {
     screen.Exit();
     switch (selected) {
     case 0:
-      PrintStudentInfo(students);
-      // ShowStudentScreen();
+      searchStudentInfo(students);
       break;
     case 1:
       AddStudentScreen(students);
-      // ShowStudentScreen();
       break;
     }
   });

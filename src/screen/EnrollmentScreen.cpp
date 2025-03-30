@@ -320,9 +320,9 @@ void QueryFailingListScreen(const std::vector<Enrollment> &enrollments,
   screen.Loop(renderer);
 }
 
-void PrintEnrollmentInfo(const std::vector<Enrollment> &enrollments,
-                         const std::vector<Student> &students,
-                         const std::vector<Course> &courses) {
+void searchEnrollmentInfo(const std::vector<Enrollment> &enrollments,
+                          const std::vector<Student> &students,
+                          const std::vector<Course> &courses) {
   std::string test = "";
   int selected = 1;
   int page = 0, max_all = 0;
@@ -510,7 +510,7 @@ void ShowEnrollmentScreen(std::vector<Enrollment> &enrollments,
     screen.Exit();
     switch (selected) {
     case 0:
-      PrintEnrollmentInfo(enrollments, students, courses);
+      searchEnrollmentInfo(enrollments, students, courses);
       break;
     case 1:
       AddEnrollmentScreen(enrollments);

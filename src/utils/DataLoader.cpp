@@ -84,8 +84,12 @@ std::vector<Enrollment> DataLoader::loadEnrollments(const std::string &filePath)
 }
 
 void DataLoader::saveStudents(const std::string& filePath, const std::vector<Student>& students) {
+    std::vector<Student> sorted_students = students;
+    std::sort(sorted_students.begin(), sorted_students.end(), [](const Student& a, const Student& b) {
+        return std::stoll(a.getId()) < std::stoll(b.getId()); // 按 studentID 的数值顺序排序
+    });
     json j;
-    for (const auto& student : students) {
+    for (const auto& student : sorted_students) {
         j.push_back({
             {"studentID", student.getId()},
             {"name", student.getName()},
@@ -100,8 +104,13 @@ void DataLoader::saveStudents(const std::string& filePath, const std::vector<Stu
 }
 
 void DataLoader::saveCourses(const std::string& filePath, const std::vector<Course>& courses) {
+    // 创建一个副本并排序
+    std::vector<Course> sorted_courses = courses;
+    std::sort(sorted_courses.begin(), sorted_courses.end(), [](const Course& a, const Course& b) {
+        return std::stoll(a.getId()) < std::stoll(b.getId()); // 按 courseID 的数值顺序排序
+    });
     json j;
-    for (const auto& course : courses) {
+    for (const auto& course : sorted_courses) {
         j.push_back({
             {"courseID", course.getId()},
             {"name", course.getName()},
@@ -113,8 +122,17 @@ void DataLoader::saveCourses(const std::string& filePath, const std::vector<Cour
 }
 
 void DataLoader::saveEnrollments(const std::string& filePath, const std::vector<Enrollment>& enrollments) {
+    std::vector<Enrollment> sorted_enrollments = enrollments;
+    std::sort(sorted_enrollments.begin(), sorted_enrollments.end(), [](const Enrollment& a, const Enrollment& b) {
+        int studentIdA = std::stoll(a.getStudentId());
+        int studentIdB = std::stoll(b.getStudentId());
+        if (studentIdA == studentIdB) {
+            return std::stoll(a.getCourseId()) < std::stoll(b.getCourseId()); // 如果 studentID 相同，按 courseID 的数值顺序排序
+        }
+        return studentIdA < studentIdB; // 按 studentID 的数值顺序排序
+    });
     json j;
-    for (const auto& enrollment : enrollments) {
+    for (const auto& enrollment : sorted_enrollments) {
         j.push_back({
             {"studentID", enrollment.getStudentId()},
             {"courseID", enrollment.getCourseId()},
