@@ -56,12 +56,6 @@ void PrintStudentInfo(std::vector<Student> &students) {
                  for (auto &el : el_by_id) {
                    el.clear();
                  }
-                 //  el_by_id[0].push_back(vbox(text("学生ID"), separator()));
-                 //  el_by_id[1].push_back(vbox(text("姓名"), separator()));
-                 //  el_by_id[2].push_back(vbox(text("性别"), separator()));
-                 //  el_by_id[3].push_back(vbox(text("年龄"), separator()));
-                 //  el_by_id[4].push_back(vbox(text("宿舍号"), separator()));
-                 //  el_by_id[5].push_back(vbox(text("电话号码"), separator()));
 
                  el_by_id[0].push_back(vbox(text(student.getId())) | flex |
                                        center);
