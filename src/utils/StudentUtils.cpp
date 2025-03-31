@@ -40,15 +40,35 @@ Student findStudentById(const std::vector<Student> &students,
   throw std::runtime_error("未找到该学生");
 }
 
-// 没什么用
-// std::string displayStudentInfo(const Student &student) {
-//     std::ostringstream oss;
-//     oss << "学生ID: " << student.getId() << "\n";
-//     oss << "姓名: " << student.getName() << "\n";
-//     oss << "性别: " << (student.getSex() == 0 ? "男" : "女") << "\n";
-//     oss << "年龄: " << student.getAge() << "\n";
-//     oss << "宿舍号: " << student.getDormNumber() << "\n";
-//     oss << "电话号码: " << student.getPhoneNumber() << "\n";
-//     return oss.str();
-// }
+bool updateStudent(std::vector<Student> &students, const std::string &studentId, 
+                   const std::string &newName, int newSex, int newAge, 
+                   int newDormNumber, const std::string &newPhoneNumber) {
+    for (auto &student : students) {
+        if (student.getId() == studentId) {
+            // 更新学生信息
+            student.setName(newName);
+            student.setSex(newSex);
+            student.setAge(newAge);
+            student.setDormNumber(newDormNumber);
+            student.setPhoneNumber(newPhoneNumber);
 
+            DataLoader::saveStudents("../data/student.json", students);
+            return true; 
+        }
+    }
+    return false; 
+}
+
+bool deleteStudent(std::vector<Student> &students, const std::string &studentId) {
+    auto it = std::find_if(students.begin(), students.end(), [&](const Student &student) {
+        return student.getId() == studentId;
+    });
+
+    if (it != students.end()) {
+        students.erase(it); // 删除找到的学生
+        DataLoader::saveStudents("../data/student.json", students); // 保存更新后的学生列表
+        return true; // 删除成功
+    }
+
+    return false; // 未找到该学生，删除失败
+}

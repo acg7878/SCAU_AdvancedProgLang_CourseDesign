@@ -262,16 +262,164 @@ void AddStudentScreen(std::vector<Student> &students) {
   screen.Loop(renderer);
 }
 
+void EditStudentScreen(std::vector<Student> &students) {
+  auto screen = ScreenInteractive::TerminalOutput();
+  std::string studentID, newName, newPhone, newAge, newDorm;
+  int newSex = 0;
+  std::string idErrorMessage, phoneErrorMessage, generalMessage;
+  std::vector<std::string> sex_options = {"男", "女"};
+
+  // 输入框和切换组件
+  auto id_input = Input(&studentID, "学生ID");
+  auto name_input = Input(&newName, "新姓名");
+  auto phone_input = Input(&newPhone, "新电话号码");
+  auto sex_toggle = Toggle(sex_options, &newSex);
+  auto age_input = Input(&newAge, "新年龄");
+  auto dorm_input = Input(&newDorm, "新宿舍号");
+
+  // 修改按钮
+  auto edit_button = Button("修改", [&] {
+    try {
+      // 验证学号是否存在
+      bool valid = true;
+      auto it = std::find_if(
+          students.begin(), students.end(),
+          [&](const Student &student) { return student.getId() == studentID; });
+      if (it == students.end()) {
+        idErrorMessage = "学号不存在，请检查后重试！";
+        valid = false;
+      }
+      // 验证手机号是否为11位
+      if (newPhone.length() != 11 ||
+          !std::all_of(newPhone.begin(), newPhone.end(), ::isdigit)) {
+        phoneErrorMessage = "电话号码必须为11位数字，请重新输入！";
+        valid = false;
+      }
+      if (!valid) {
+        return;
+      }
+
+      // 转换输入数据
+      int age = std::stoi(newAge);
+      int dorm = std::stoll(newDorm);
+
+      // 调用修改学生信息的函数
+      if (updateStudent(students, studentID, newName, newSex, age, dorm,
+                        newPhone)) {
+        generalMessage = "学生信息修改成功！";
+        idErrorMessage = "";
+        phoneErrorMessage = "";
+      } else {
+        generalMessage = "未找到该学生，修改失败！";
+        idErrorMessage = "";
+        phoneErrorMessage = "";
+      }
+    } catch (const std::exception &e) {
+      generalMessage = "输入数据有误，请检查后重试！";
+      idErrorMessage = "";
+      phoneErrorMessage = "";
+    }
+  });
+
+  // 返回按钮
+  auto back_button = Button("返回", [&] { screen.Exit(); });
+
+  // 界面容器
+  auto edit_student_container =
+      Container::Vertical({id_input, name_input, phone_input, sex_toggle,
+                           age_input, dorm_input, edit_button, back_button});
+
+  // 渲染器
+  auto renderer = Renderer(edit_student_container, [&] {
+    return vbox({
+               text("修改学生信息") | bold | center,
+               separator(),
+               id_input->Render() | center,
+               name_input->Render() | center,
+               hbox({text("性别: "), sex_toggle->Render()}) | center,
+               age_input->Render() | center,
+               dorm_input->Render() | center,
+               phone_input->Render() | center,
+               hbox(edit_button->Render() | center,
+                    back_button->Render() | center) |
+                   center,
+               text(idErrorMessage) | color(Color::Red) | center,
+               text(phoneErrorMessage) | color(Color::Red) | center,
+               text(generalMessage) | color(Color::Green) | center,
+           }) |
+           border;
+  });
+
+  // 启动界面
+  screen.Loop(renderer);
+}
+void DeleteStudentScreen(std::vector<Student> &students) {
+  auto screen = ScreenInteractive::TerminalOutput();
+  std::string studentID;
+  std::string deleteMessage;
+
+  // 输入框
+  auto id_input = Input(&studentID, "学生ID");
+
+  // 删除按钮
+  auto delete_button = Button("删除", [&] {
+    auto it = std::find_if(
+        students.begin(), students.end(),
+        [&](const Student &student) { return student.getId() == studentID; });
+
+    if (it == students.end()) {
+      deleteMessage = "未找到该学生，删除失败！";
+    } else {
+      if (deleteStudent(students, studentID)) {
+        deleteMessage = "学生删除成功！";
+      } else {
+        deleteMessage = "删除失败，请重试！";
+      }
+    }
+  });
+
+  // 返回按钮
+  auto back_button = Button("返回", [&] { screen.Exit(); });
+
+  // 界面容器
+  auto delete_student_container = Container::Vertical({
+      id_input,
+      delete_button,
+      back_button,
+  });
+
+  // 渲染器
+  auto renderer = Renderer(delete_student_container, [&] {
+    return vbox({
+               text("删除学生信息") | bold | center,
+               separator(),
+               id_input->Render() | center,
+               separator(),
+               hbox({
+                   delete_button->Render() | center,
+                   back_button->Render() | center,
+               }) | center,
+               separator(),
+               text(deleteMessage) | color(Color::Red) | center,
+           }) |
+           border;
+  });
+
+  // 启动界面
+  screen.Loop(renderer);
+}
+
 // 主菜单界面
 void ShowStudentScreen(std::vector<Student> &students) {
   auto screen = ScreenInteractive::TerminalOutput();
 
   int selected = 0;
-  std::vector<std::string> entries = {"查询学生信息", "录入学生信息"};
+  std::vector<std::string> entries = {"查询学生信息", "录入学生信息",
+                                      "修改学生信息", "删除学生信息"};
 
   auto menu = Menu(&entries, &selected);
   auto enter_button = Button("进入", [&] {
-    screen.Exit();
+    // screen.Exit();
     switch (selected) {
     case 0:
       searchStudentInfo(students);
@@ -279,6 +427,11 @@ void ShowStudentScreen(std::vector<Student> &students) {
     case 1:
       AddStudentScreen(students);
       break;
+    case 2:
+      EditStudentScreen(students);
+      break;
+    case 3:
+      DeleteStudentScreen(students);
     }
   });
 

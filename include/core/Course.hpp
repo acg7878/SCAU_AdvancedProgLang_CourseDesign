@@ -19,6 +19,19 @@ public:
   int getCredit() const;
   void setName(const std::string& name);
   void setCredit(int credit);
+
+  bool operator==(const Course &other) const {
+    return courseID == other.courseID; // 只比较课程ID是否相等
+}
 };
+
+namespace std {
+  template <>
+  struct hash<Course> {
+      std::size_t operator()(const Course &course) const {
+          return std::hash<std::string>()(course.getId()); // 使用课程ID的哈希值
+      }
+  };
+  } // namespace std
 
 #endif // COURSE_HPP

@@ -507,7 +507,7 @@ void ShowEnrollmentScreen(std::vector<Enrollment> &enrollments,
 
   auto menu = Menu(&entries, &selected);
   auto enter_button = Button("进入", [&] {
-    screen.Exit();
+    //screen.Exit();
     switch (selected) {
     case 0:
       searchEnrollmentInfo(enrollments, students, courses);

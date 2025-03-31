@@ -210,22 +210,248 @@ void AddCourseScreen(std::vector<Course> &courses) {
   screen.Loop(renderer);
 }
 
+void EditCourseScreen(std::vector<Course> &courses) {
+  auto screen = ScreenInteractive::TerminalOutput();
+  std::string courseID, newCourseName, newCredits;
+  std::string editCourseMessage;
+
+  // 输入框
+  auto id_input = Input(&courseID, "课程ID");
+  auto name_input = Input(&newCourseName, "新课程名称");
+  auto credits_input = Input(&newCredits, "新学分");
+
+  // 修改按钮
+  auto edit_button = Button("修改", [&] {
+    try {
+      // 验证课程是否存在
+      auto it = std::find_if(
+          courses.begin(), courses.end(),
+          [&](const Course &course) { return course.getId() == courseID; });
+
+      if (it == courses.end()) {
+        editCourseMessage = "未找到该课程信息，请检查课程ID！";
+        return;
+      }
+      int credits = std::stoi(newCredits); // 转换学分为整数
+      editCourseMessage =
+          modify_course(courses, courseID, newCourseName, credits);
+    } catch (const std::exception &e) {
+      editCourseMessage = "发生未知错误，请重试！";
+    }
+  });
+
+  // 返回按钮
+  auto back_button = Button("返回", screen.ExitLoopClosure());
+
+  // 界面容器
+  auto edit_course_container = Container::Vertical({
+      id_input,
+      name_input,
+      credits_input,
+      edit_button,
+      back_button,
+  });
+
+  // 渲染器
+  auto renderer = Renderer(edit_course_container, [&] {
+    return vbox({
+               text("修改课程信息") | bold | center,
+               separator(),
+               id_input->Render() | center,
+               name_input->Render() | center,
+               credits_input->Render() | center,
+               hbox(edit_button->Render() | center,
+                    back_button->Render() | center) |
+                   center,
+               text(editCourseMessage) | color(Color::Red) | center,
+           }) |
+           border;
+  });
+
+  // 启动界面
+  screen.Loop(renderer);
+}
+
+void DeleteCourseScreen(std::vector<Course> &courses) {
+  auto screen = ScreenInteractive::TerminalOutput();
+  std::string courseID;
+  std::string deleteMessage;
+
+  // 输入框
+  auto id_input = Input(&courseID, "课程ID");
+
+  // 删除按钮
+  auto delete_button = Button("删除", [&] {
+    auto it =
+        std::find_if(courses.begin(), courses.end(), [&](const Course &course) {
+          return course.getId() == courseID;
+        });
+
+    if (it == courses.end()) {
+      deleteMessage = "未找到该课程信息，删除失败！";
+    } else {
+      if (delete_course(courses, courseID)) {
+        deleteMessage = "课程删除成功！";
+      } else {
+        deleteMessage = "删除失败，请重试！";
+      }
+    }
+  });
+
+  // 返回按钮
+  auto back_button = Button("返回", screen.ExitLoopClosure());
+
+  // 界面容器
+  auto delete_course_container = Container::Vertical({
+      id_input,
+      delete_button,
+      back_button,
+  });
+
+  // 渲染器
+  auto renderer = Renderer(delete_course_container, [&] {
+    return vbox({
+               text("删除课程信息") | bold | center,
+               separator(),
+               id_input->Render() | center,
+               separator(),
+               hbox({
+                   delete_button->Render() | center,
+                   back_button->Render() | center,
+               }) | center,
+               separator(),
+               text(deleteMessage) | color(Color::Red) | center,
+           }) |
+           border;
+  });
+
+  // 启动界面
+  screen.Loop(renderer);
+}
+
+void SearchCourseScreen(std::vector<Course> &courses) {
+  std::string keywords;
+  std::string test = "";
+  int page = 0, max_all = 0;
+  auto screen = ScreenInteractive::TerminalOutput();
+  Elements el_all[3];
+
+  // 搜索结果
+  std::vector<Course> searchResults;
+
+  // 按钮组件
+  auto search_button = Button("搜索", [&] {
+    try {
+      searchResults.clear();
+      auto results = search_course(courses, keywords); // 调用模糊查找函数
+      searchResults.assign(results.begin(), results.end());
+      if (searchResults.empty()) {
+        test = "未找到匹配的课程信息！";
+      } else {
+        test = "搜索完成，共找到 " + std::to_string(searchResults.size()) +
+               " 条结果。";
+        page = 0; // 重置到第一页
+      }
+    } catch (const std::exception &e) {
+      test = "搜索时发生错误，请重试！";
+    }
+  });
+
+  auto quit = Button("退出", screen.ExitLoopClosure());
+  auto page_last = Button("上一页", [&] {
+    if (page > 0)
+      page--;
+  });
+  auto page_next = Button("下一页", [&] {
+    if (page < max_all)
+      page++;
+  });
+
+  // 输入框
+  auto input_box =
+      Input(&keywords, "请输入关键词") | size(ftxui::HEIGHT, ftxui::EQUAL, 1);
+
+  // 容器组件
+  auto comp = Container::Horizontal({
+      input_box,
+      search_button,
+      quit,
+      page_last,
+      page_next,
+  });
+
+  // 渲染器
+  auto renderer = Renderer(comp, [&] {
+    // 清空当前页的显示内容
+    for (auto &el : el_all) {
+      el.clear();
+    }
+
+    // 分页显示搜索结果
+    int now = 0;
+    for (const auto &course : searchResults) {
+      if (now / 8 == page) { // 每页显示 8 条
+        el_all[0].push_back(text(course.getId()) | center);
+        el_all[1].push_back(text(course.getName()) | center);
+        el_all[2].push_back(text(std::to_string(course.getCredit())) | center);
+      }
+      now++;
+    }
+    max_all = (now - 1) / 8;
+
+    // 渲染界面
+    return vbox({
+               hbox(input_box->Render() | flex,
+                    search_button->Render() | center |
+                        ftxui::size(ftxui::WIDTH, ftxui::EQUAL,
+                                    10) // 按钮宽度固定为 10
+                    ),
+               text("关键词搜索课程") | bold | center,
+               separator(),
+               hbox({
+                   vbox(text("课程ID") | center, el_all[0]) | flex,
+                   separator(),
+                   vbox(text("课程名称") | center, el_all[1]) | flex,
+                   separator(),
+                   vbox(text("学分") | center, el_all[2]) | flex,
+               }),
+               separator(),
+               hbox(page_last->Render(), separatorEmpty(), quit->Render(),
+                    separatorEmpty(), page_next->Render()) |
+                   center,
+               text(test) | align_right,
+           }) |
+           border | size(WIDTH, EQUAL, 80) | center;
+  });
+
+  // 启动界面
+  screen.Loop(renderer);
+}
+
 void ShowCourseScreen(std::vector<Course> &courses) {
   auto screen = ScreenInteractive::TerminalOutput();
 
   int selected = 0;
-  std::vector<std::string> entries = {"查询课程信息", "录入课程信息"};
+  std::vector<std::string> entries = {"总揽课程信息", "关键词查询课程",
+                                      "录入课程信息", "修改课程信息",
+                                      "删除课程信息"};
 
   auto menu = Menu(&entries, &selected);
   auto enter_button = Button("进入", [&] {
-    screen.Exit();
+    // screen.Exit();
     switch (selected) {
     case 0:
       PrintCourseInfo(courses);
       break;
     case 1:
+      SearchCourseScreen(courses);
+    case 2:
       AddCourseScreen(courses);
       break;
+    case 3:
+      EditCourseScreen(courses);
+    case 4:
+      DeleteCourseScreen(courses);
     }
   });
 

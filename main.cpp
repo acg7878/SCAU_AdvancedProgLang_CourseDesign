@@ -46,10 +46,7 @@ void menu(std::vector<Student> students, std::vector<Course> courses,
     }
   });
 
-  // "退出" 按钮
   auto quit = Button("退出", screen.ExitLoopClosure());
-
-  // 菜单组件
   auto menu = Menu(&entries, &selected);
 
   // 容器组件
