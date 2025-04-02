@@ -13,10 +13,8 @@ void QueryFailingListScreen(const std::vector<Enrollment> &enrollments,
                             const std::vector<Student> &students,
                             const std::vector<Course> &courses);
 void searchEnrollmentInfo(const std::vector<Enrollment> &enrollments,
-                          const std::vector<Student> &students,
-                          const std::vector<Course> &courses);
-void ShowEnrollmentScreen(std::vector<Enrollment> &enrollments,
-                          std::vector<Student> &students,
+                          const std::vector<Student> &students, const std::vector<Course> &courses);
+void ShowEnrollmentScreen(std::vector<Enrollment> &enrollments, std::vector<Student> &students,
                           std::vector<Course> &courses);
 
 #endif // ENROLLMENT_SCREEN_HPP
