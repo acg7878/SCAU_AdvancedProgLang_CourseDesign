@@ -427,13 +427,16 @@ void ShowCourseScreen(std::vector<Course> &courses) {
                 break;
             case 1:
                 SearchCourseScreen(courses);
+                break;
             case 2:
                 AddCourseScreen(courses);
                 break;
             case 3:
                 EditCourseScreen(courses);
+                break;
             case 4:
                 DeleteCourseScreen(courses);
+                break;
         }
     });
 
