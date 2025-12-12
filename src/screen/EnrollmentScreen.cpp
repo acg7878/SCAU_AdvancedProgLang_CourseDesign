@@ -218,7 +218,7 @@ void QueryFailingListScreen(const std::vector<Enrollment> &enrollments,
                            el_by_id[2].push_back(text(std::to_string(grade)) | center);
                        }
                        isFound = !failing_courses.empty();
-                   } catch (const std::exception &e) {
+                   } catch (const std::exception &) {
                        for (auto &el : el_by_id)
                            el.clear();
                        isFound = false;
@@ -261,13 +261,13 @@ void QueryFailingListScreen(const std::vector<Enrollment> &enrollments,
                        text("全部不及格信息") | bold | center,
                        separator(),
                        hbox({
-                           vbox(text("学生ID") | center, el_all[0]) | flex,
+                           vbox({text("学生ID") | center, vbox(el_all[0])}) | flex,
                            separator(),
-                           vbox(text("姓名") | center, el_all[1]) | flex,
+                           vbox({text("姓名") | center, vbox(el_all[1])}) | flex,
                            separator(),
-                           vbox(text("课程") | center, el_all[2]) | flex,
+                           vbox({text("课程") | center, vbox(el_all[2])}) | flex,
                            separator(),
-                           vbox(text("成绩") | center, el_all[3]) | flex,
+                           vbox({text("成绩") | center, vbox(el_all[3])}) | flex,
                        }),
                        separator(),
                        hbox(page_last->Render(), separatorEmpty(), quit->Render(), separatorEmpty(),
@@ -289,11 +289,11 @@ void QueryFailingListScreen(const std::vector<Enrollment> &enrollments,
                               center);
             content.push_back(separator());
             content.push_back(hbox({
-                vbox(text("姓名") | center, el_by_id[0]) | flex,
+                vbox({text("姓名") | center, vbox(el_by_id[0])}) | flex,
                 separator(),
-                vbox(text("课程") | center, el_by_id[1]) | flex,
+                vbox({text("课程") | center, vbox(el_by_id[1])}) | flex,
                 separator(),
-                vbox(text("成绩") | center, el_by_id[2]) | flex,
+                vbox({text("成绩") | center, vbox(el_by_id[2])}) | flex,
             }));
             content.push_back(separator());
             content.push_back(quit->Render() | center);
@@ -369,7 +369,7 @@ void searchEnrollmentInfo(const std::vector<Enrollment> &enrollments,
                 }
             }
             enrollmentFound = !el_by_id[0].empty();
-        } catch (const std::exception &e) {
+        } catch (const std::exception &) {
             for (auto &el : el_by_id) {
                 el.clear();
             }
@@ -427,13 +427,13 @@ void searchEnrollmentInfo(const std::vector<Enrollment> &enrollments,
                        text("全部选课信息") | bold | center,
                        separator(),
                        hbox({
-                           vbox(text("学生ID") | center, el_all[0]) | flex,
+                           vbox({text("学生ID") | center, vbox(el_all[0])}) | flex,
                            separator(),
-                           vbox(text("姓名") | center, el_all[1]) | flex,
+                           vbox({text("姓名") | center, vbox(el_all[1])}) | flex,
                            separator(),
-                           vbox(text("课程名称") | center, el_all[2]) | flex,
+                           vbox({text("课程名称") | center, vbox(el_all[2])}) | flex,
                            separator(),
-                           vbox(text("综合成绩") | center, el_all[3]) | flex,
+                           vbox({text("综合成绩") | center, vbox(el_all[3])}) | flex,
                        }),
                        separator(),
                        hbox(page_last->Render(), separatorEmpty(), quit->Render(), separatorEmpty(),
@@ -455,13 +455,13 @@ void searchEnrollmentInfo(const std::vector<Enrollment> &enrollments,
                               center);
             content.push_back(separator());
             content.push_back(hbox({
-                vbox(text("学生ID") | center, el_by_id[0]) | flex,
+                vbox({text("学生ID") | center, vbox(el_by_id[0])}) | flex,
                 separator(),
-                vbox(text("姓名") | center, el_by_id[1]) | flex,
+                vbox({text("姓名") | center, vbox(el_by_id[1])}) | flex,
                 separator(),
-                vbox(text("课程名称") | center, el_by_id[2]) | flex,
+                vbox({text("课程名称") | center, vbox(el_by_id[2])}) | flex,
                 separator(),
-                vbox(text("综合成绩") | center, el_by_id[3]) | flex,
+                vbox({text("综合成绩") | center, vbox(el_by_id[3])}) | flex,
             }));
             content.push_back(separator());
             content.push_back(quit->Render() | center);

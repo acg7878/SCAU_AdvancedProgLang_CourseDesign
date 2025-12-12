@@ -125,8 +125,8 @@ void DataLoader::saveEnrollments(const std::string &filePath,
     std::sort(
         sorted_enrollments.begin(), sorted_enrollments.end(),
         [](const Enrollment &a, const Enrollment &b) {
-            int studentIdA = std::stoll(a.getStudentId());
-            int studentIdB = std::stoll(b.getStudentId());
+            long long studentIdA = std::stoll(a.getStudentId());
+            long long studentIdB = std::stoll(b.getStudentId());
             if (studentIdA == studentIdB) {
                 return std::stoll(a.getCourseId()) <
                        std::stoll(

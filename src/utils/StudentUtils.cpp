@@ -3,6 +3,7 @@
 #include "utils/DataLoader.hpp"
 #include <string>
 #include <vector>
+#include <stdexcept>
 
 
 // 验证id唯一性

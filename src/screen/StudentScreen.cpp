@@ -4,6 +4,7 @@
 #include <ftxui/dom/elements.hpp>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace ftxui;
 
@@ -66,7 +67,7 @@ void searchStudentInfo(std::vector<Student> &students) {
                                              flex | center);
                        el_by_id[5].push_back(vbox(text(student.getPhoneNumber())) | flex | center);
                        studentFound = true;
-                   } catch (const std::exception &e) {
+                   } catch (const std::exception &) {
                        // 清空之前的元素
                        for (auto &el : el_by_id) {
                            el.clear();
@@ -117,17 +118,17 @@ void searchStudentInfo(std::vector<Student> &students) {
                        text("全部学生信息") | bold | center,
                        separator(),
                        hbox({
-                           vbox(text("学生ID") | center, el_all[0]) | flex,
+                           vbox({text("学生ID") | center, vbox(el_all[0])}) | flex,
                            separator(),
-                           vbox(text("姓名") | center, el_all[1]) | flex,
+                           vbox({text("姓名") | center, vbox(el_all[1])}) | flex,
                            separator(),
-                           vbox(text("性别") | center, el_all[2]) | flex,
+                           vbox({text("性别") | center, vbox(el_all[2])}) | flex,
                            separator(),
-                           vbox(text("年龄") | center, el_all[3]) | flex,
+                           vbox({text("年龄") | center, vbox(el_all[3])}) | flex,
                            separator(),
-                           vbox(text("宿舍号") | center, el_all[4]) | flex,
+                           vbox({text("宿舍号") | center, vbox(el_all[4])}) | flex,
                            separator(),
-                           vbox(text("电话号码") | center, el_all[5]) | flex,
+                           vbox({text("电话号码") | center, vbox(el_all[5])}) | flex,
                        }),
                        separator(),
                        hbox(page_last->Render(), separatorEmpty(), quit->Render(), separatorEmpty(),
@@ -149,17 +150,17 @@ void searchStudentInfo(std::vector<Student> &students) {
                               center);
             content.push_back(separator());
             content.push_back(hbox({
-                vbox(text("学生ID") | center, el_by_id[0]) | flex,
+                vbox({text("学生ID") | center, vbox(el_by_id[0])}) | flex,
                 separator(),
-                vbox(text("姓名") | center, el_by_id[1]) | flex,
+                vbox({text("姓名") | center, vbox(el_by_id[1])}) | flex,
                 separator(),
-                vbox(text("性别") | center, el_by_id[2]) | flex,
+                vbox({text("性别") | center, vbox(el_by_id[2])}) | flex,
                 separator(),
-                vbox(text("年龄") | center, el_by_id[3]) | flex,
+                vbox({text("年龄") | center, vbox(el_by_id[3])}) | flex,
                 separator(),
-                vbox(text("宿舍号") | center, el_by_id[4]) | flex,
+                vbox({text("宿舍号") | center, vbox(el_by_id[4])}) | flex,
                 separator(),
-                vbox(text("电话号码") | center, el_by_id[5]) | flex,
+                vbox({text("电话号码") | center, vbox(el_by_id[5])}) | flex,
             }));
             content.push_back(separator());
             content.push_back(quit->Render() | center);
@@ -213,7 +214,7 @@ void AddStudentScreen(std::vector<Student> &students) {
                 addStudentMessage = "";
                 test = "学生ID已存在，录入失败！";
             }
-        } catch (const std::exception &e) {
+        } catch (const std::exception &) {
             addStudentMessage = "";
             test = "发生未知错误，请重试！";
         }
@@ -284,7 +285,7 @@ void EditStudentScreen(std::vector<Student> &students) {
 
             // 转换输入数据
             int age = std::stoi(newAge);
-            int dorm = std::stoll(newDorm);
+            int dorm = std::stoi(newDorm);
 
             // 调用修改学生信息的函数
             if (updateStudent(students, studentID, newName, newSex, age, dorm, newPhone)) {
@@ -296,7 +297,7 @@ void EditStudentScreen(std::vector<Student> &students) {
                 idErrorMessage = "";
                 phoneErrorMessage = "";
             }
-        } catch (const std::exception &e) {
+        } catch (const std::exception &) {
             generalMessage = "输入数据有误，请检查后重试！";
             idErrorMessage = "";
             phoneErrorMessage = "";

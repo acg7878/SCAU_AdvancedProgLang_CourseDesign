@@ -10,10 +10,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # 包含头文件目录
 include_directories(include)
 
-# 查找 包
-# 独立的指令
-find_package(nlohmann_json REQUIRED)
-find_package(ftxui CONFIG REQUIRED)
+# 添加子目录
+add_subdirectory(3rd/json)
+add_subdirectory(3rd/ftxui)
 
 # 添加源文件
 file(GLOB_RECURSE SOURCES "src/*.cpp")

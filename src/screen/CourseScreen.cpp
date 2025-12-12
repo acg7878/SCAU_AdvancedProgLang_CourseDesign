@@ -62,7 +62,7 @@ void PrintCourseInfo(std::vector<Course> &courses) {
                        el_by_id[2].push_back(vbox(text(std::to_string(result.getCredit()))) | flex |
                                              center);
                        courseFound = true;
-                   } catch (const std::exception &e) {
+                   } catch (const std::exception &) {
                        for (auto &el : el_by_id) {
                            el.clear();
                        }
@@ -109,11 +109,11 @@ void PrintCourseInfo(std::vector<Course> &courses) {
                        text("全部课程信息") | bold | center,
                        separator(),
                        hbox({
-                           vbox(text("课程ID") | center, el_all[0]) | flex,
+                           vbox({text("课程ID") | center, vbox(el_all[0])}) | flex,
                            separator(),
-                           vbox(text("课程名称") | center, el_all[1]) | flex,
+                           vbox({text("课程名称") | center, vbox(el_all[1])}) | flex,
                            separator(),
-                           vbox(text("学分") | center, el_all[2]) | flex,
+                           vbox({text("学分") | center, vbox(el_all[2])}) | flex,
                        }),
                        separator(),
                        hbox(page_last->Render(), separatorEmpty(), quit->Render(), separatorEmpty(),
@@ -135,11 +135,11 @@ void PrintCourseInfo(std::vector<Course> &courses) {
                               center);
             content.push_back(separator());
             content.push_back(hbox({
-                vbox(text("课程ID") | center, el_by_id[0]) | flex,
+                vbox({text("课程ID") | center, vbox(el_by_id[0])}) | flex,
                 separator(),
-                vbox(text("课程名称") | center, el_by_id[1]) | flex,
+                vbox({text("课程名称") | center, vbox(el_by_id[1])}) | flex,
                 separator(),
-                vbox(text("学分") | center, el_by_id[2]) | flex,
+                vbox({text("学分") | center, vbox(el_by_id[2])}) | flex,
             }));
             content.push_back(separator());
             content.push_back(quit->Render() | center);
@@ -171,11 +171,11 @@ void AddCourseScreen(std::vector<Course> &courses) {
             if (success) {
                 screen.Exit();
             }
-        } catch (const std::invalid_argument &e) {
+        } catch (const std::invalid_argument &) {
             addCourseMessage = "输入的学分不是有效的数字，请重新输入！";
-        } catch (const std::out_of_range &e) {
+        } catch (const std::out_of_range &) {
             addCourseMessage = "输入的学分超出范围，请重新输入！";
-        } catch (const std::exception &e) {
+        } catch (const std::exception &) {
             addCourseMessage = "发生未知错误，请重试！";
         }
     });
@@ -225,7 +225,7 @@ void EditCourseScreen(std::vector<Course> &courses) {
             }
             int credits = std::stoi(newCredits); // 转换学分为整数
             editCourseMessage = modify_course(courses, courseID, newCourseName, credits);
-        } catch (const std::exception &e) {
+        } catch (const std::exception &) {
             editCourseMessage = "发生未知错误，请重试！";
         }
     });
@@ -337,7 +337,7 @@ void SearchCourseScreen(std::vector<Course> &courses) {
                 test = "搜索完成，共找到 " + std::to_string(searchResults.size()) + " 条结果。";
                 page = 0; // 重置到第一页
             }
-        } catch (const std::exception &e) {
+        } catch (const std::exception &) {
             test = "搜索时发生错误，请重试！";
         }
     });
@@ -392,11 +392,11 @@ void SearchCourseScreen(std::vector<Course> &courses) {
                    text("关键词搜索课程") | bold | center,
                    separator(),
                    hbox({
-                       vbox(text("课程ID") | center, el_all[0]) | flex,
+                       vbox({text("课程ID") | center, vbox(el_all[0])}) | flex,
                        separator(),
-                       vbox(text("课程名称") | center, el_all[1]) | flex,
+                       vbox({text("课程名称") | center, vbox(el_all[1])}) | flex,
                        separator(),
-                       vbox(text("学分") | center, el_all[2]) | flex,
+                       vbox({text("学分") | center, vbox(el_all[2])}) | flex,
                    }),
                    separator(),
                    hbox(page_last->Render(), separatorEmpty(), quit->Render(), separatorEmpty(),
