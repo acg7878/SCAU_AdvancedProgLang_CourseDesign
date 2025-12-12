@@ -1,0 +1,6 @@
+[submodule "3rd/ftxui"]
+	path = 3rd/ftxui
+	url = https://github.com/ArthurSonzogni/FTXUI
+[submodule "3rd/json"]
+	path = 3rd/json
+	url = https://github.com/nlohmann/json
